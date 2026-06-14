@@ -172,7 +172,7 @@ function render(){
   setHTML('imsGrid', DATA.ims.map(featureCard).join(''));
   setHTML('checklistGrid', DATA.checklist.map(featureCard).join(''));
   setHTML('fmsGrid', DATA.fms.map(featureCard).join(''));
-  setHTML('adminGrid', DATA.admin.map(featureCard).join(''));
+  
 
   setHTML('paymentsCharts', DATA.charts.payments.map(chartCard).join(''));
   setHTML('courierCharts', DATA.charts.courier.map(chartCard).join(''));
