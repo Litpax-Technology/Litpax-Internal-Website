@@ -111,9 +111,13 @@ const TITLES = {
   admin: 'Admin Tools'
 };
 
+function setHTML(id, html){
+  const el = document.getElementById(id);
+  if(el) el.innerHTML = html;
+}
+
 function toolCard(item){
   const [name,type,url] = item;
-
   return `
     <a class="tool-card searchable" href="${url}" target="_blank" data-search="${name} ${type}">
       <div class="tool-content">
@@ -127,7 +131,6 @@ function toolCard(item){
 
 function featureCard(item){
   const [name,desc,url,icon] = item;
-
   return `
     <a class="feature-card searchable" href="${url}" target="_blank" data-search="${name} ${desc}">
       <div class="feature-left">
@@ -144,7 +147,6 @@ function featureCard(item){
 
 function chartCard(item){
   const [title,url] = item;
-
   return `
     <div class="chart-card searchable" data-search="${title}">
       <div class="chart-head">
@@ -159,22 +161,22 @@ function chartCard(item){
 }
 
 function render(){
-  document.getElementById('formsGrid').innerHTML = DATA.forms.map(toolCard).join('');
-  document.getElementById('webFormsGrid').innerHTML = DATA.webForms.map(featureCard).join('');
+  setHTML('formsGrid', DATA.forms.map(toolCard).join(''));
+  setHTML('webFormsGrid', DATA.webForms.map(featureCard).join(''));
 
-  document.getElementById('mainSheetsGrid').innerHTML = DATA.mainSheets.map(toolCard).join('');
-  document.getElementById('orderSheetsGrid').innerHTML = DATA.orderSheets.map(toolCard).join('');
+  setHTML('mainSheetsGrid', DATA.mainSheets.map(toolCard).join(''));
+  setHTML('orderSheetsGrid', DATA.orderSheets.map(toolCard).join(''));
 
-  document.getElementById('responsesGrid').innerHTML = DATA.responses.map(toolCard).join('');
+  setHTML('responsesGrid', DATA.responses.map(toolCard).join(''));
 
-  document.getElementById('imsGrid').innerHTML = DATA.ims.map(featureCard).join('');
-  document.getElementById('checklistGrid').innerHTML = DATA.checklist.map(featureCard).join('');
-  document.getElementById('fmsGrid').innerHTML = DATA.fms.map(featureCard).join('');
-  document.getElementById('adminGrid').innerHTML = DATA.admin.map(featureCard).join('');
+  setHTML('imsGrid', DATA.ims.map(featureCard).join(''));
+  setHTML('checklistGrid', DATA.checklist.map(featureCard).join(''));
+  setHTML('fmsGrid', DATA.fms.map(featureCard).join(''));
+  setHTML('adminGrid', DATA.admin.map(featureCard).join(''));
 
-  document.getElementById('paymentsCharts').innerHTML = DATA.charts.payments.map(chartCard).join('');
-  document.getElementById('courierCharts').innerHTML = DATA.charts.courier.map(chartCard).join('');
-  document.getElementById('repairCharts').innerHTML = DATA.charts.repair.map(chartCard).join('');
+  setHTML('paymentsCharts', DATA.charts.payments.map(chartCard).join(''));
+  setHTML('courierCharts', DATA.charts.courier.map(chartCard).join(''));
+  setHTML('repairCharts', DATA.charts.repair.map(chartCard).join(''));
 }
 
 function showSection(name){
@@ -187,34 +189,30 @@ function showSection(name){
   });
 
   if(name === 'home'){
-    document.getElementById('section-home').classList.add('active');
-
+    document.getElementById('section-home')?.classList.add('active');
     document.querySelectorAll('.home-only').forEach(section => {
       section.classList.add('active');
     });
   } else {
-    const target = document.getElementById('section-' + name);
-    if(target) target.classList.add('active');
+    document.getElementById('section-' + name)?.classList.add('active');
   }
 
   document.querySelectorAll('.nav-link').forEach(btn => {
     btn.classList.remove('active');
   });
 
-  const navBtn = document.querySelector(`.nav-link[data-section="${name}"]`);
-  if(navBtn) navBtn.classList.add('active');
+  document.querySelector(`.nav-link[data-section="${name}"]`)?.classList.add('active');
 
-  document.getElementById('pageTitle').textContent = TITLES[name] || 'Internal Portal';
+  const title = document.getElementById('pageTitle');
+  if(title) title.textContent = TITLES[name] || 'Internal Portal';
 
-  document.getElementById('portalSearch').value = '';
+  const search = document.getElementById('portalSearch');
+  if(search) search.value = '';
+
   filterCards('');
-
   closeSidebar();
 
-  window.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 function filterCards(query){
@@ -227,12 +225,13 @@ function filterCards(query){
     const match = !q || text.includes(q);
 
     card.classList.toggle('hide-by-search', !match);
-
     if(match) visible++;
   });
 
-  document.getElementById('noResults').style.display =
-    q && visible === 0 ? 'flex' : 'none';
+  const noResults = document.getElementById('noResults');
+  if(noResults){
+    noResults.style.display = q && visible === 0 ? 'flex' : 'none';
+  }
 }
 
 function showDash(name){
@@ -244,46 +243,45 @@ function showDash(name){
     panel.classList.remove('active');
   });
 
-  const btn = document.querySelector(`.dash-tab[data-dash="${name}"]`);
-  const panel = document.getElementById('dash-' + name);
-
-  if(btn) btn.classList.add('active');
-  if(panel) panel.classList.add('active');
+  document.querySelector(`.dash-tab[data-dash="${name}"]`)?.classList.add('active');
+  document.getElementById('dash-' + name)?.classList.add('active');
 }
 
 function toggleSidebar(){
-  document.getElementById('sidebar').classList.toggle('open');
-  document.getElementById('overlay').classList.toggle('open');
+  document.getElementById('sidebar')?.classList.toggle('open');
+  document.getElementById('overlay')?.classList.toggle('open');
 }
 
 function closeSidebar(){
-  document.getElementById('sidebar').classList.remove('open');
-  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('sidebar')?.classList.remove('open');
+  document.getElementById('overlay')?.classList.remove('open');
 }
 
-render();
+document.addEventListener('DOMContentLoaded', () => {
+  render();
 
-document.querySelectorAll('.nav-link').forEach(btn => {
-  btn.addEventListener('click', () => {
-    showSection(btn.dataset.section);
+  document.querySelectorAll('.nav-link').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showSection(btn.dataset.section);
+    });
   });
-});
 
-document.querySelectorAll('[data-section-jump]').forEach(el => {
-  el.addEventListener('click', () => {
-    showSection(el.dataset.sectionJump);
+  document.querySelectorAll('[data-section-jump]').forEach(el => {
+    el.addEventListener('click', () => {
+      showSection(el.dataset.sectionJump);
+    });
   });
-});
 
-document.querySelectorAll('.dash-tab').forEach(btn => {
-  btn.addEventListener('click', () => {
-    showDash(btn.dataset.dash);
+  document.querySelectorAll('.dash-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      showDash(btn.dataset.dash);
+    });
   });
-});
 
-document.getElementById('portalSearch').addEventListener('input', e => {
-  filterCards(e.target.value);
-});
+  document.getElementById('portalSearch')?.addEventListener('input', e => {
+    filterCards(e.target.value);
+  });
 
-document.getElementById('menuBtn').addEventListener('click', toggleSidebar);
-document.getElementById('overlay').addEventListener('click', closeSidebar);
+  document.getElementById('menuBtn')?.addEventListener('click', toggleSidebar);
+  document.getElementById('overlay')?.addEventListener('click', closeSidebar);
+});
