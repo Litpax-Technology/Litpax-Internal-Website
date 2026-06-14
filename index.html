@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Litpax Internal Portal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="app">
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="brand-logo">LT</div>
+      <div>
+        <h1>Litpax</h1>
+        <p>Internal Portal</p>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <button class="nav-link active" data-section="home"><span>⌂</span> Home</button>
+      <button class="nav-link" data-section="forms"><span>□</span> Google Forms</button>
+      <button class="nav-link" data-section="webforms"><span>↗</span> Web UI Forms</button>
+      <button class="nav-link" data-section="sheets"><span>▤</span> MIS Sheets</button>
+      <button class="nav-link" data-section="responses"><span>▥</span> Responses</button>
+      <button class="nav-link" data-section="fms"><span>⇄</span> FMS Tools</button>
+      <button class="nav-link" data-section="dashboard"><span>◈</span> Dashboards</button>
+      <button class="nav-link" data-section="admin"><span>⚙</span> Admin Tools</button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <strong>Litpax Technology</strong>
+      <span>Built with discipline, driven by purpose</span>
+    </div>
+  </aside>
+
+  <div class="overlay" id="overlay"></div>
+
+  <main class="main">
+    <header class="topbar">
+      <button class="menu-btn" id="menuBtn">☰</button>
+      <div class="top-title">
+        <h2 id="pageTitle">Internal Portal</h2>
+        <p>All company tools, forms, sheets and dashboards in one place</p>
+      </div>
+      <div class="top-actions">
+        <div class="search-box">
+          <span>⌕</span>
+          <input type="text" id="portalSearch" placeholder="Search form, sheet, dashboard..." />
+        </div>
+        <a class="top-btn" href="https://mis-darpan.github.io/IMS/" target="_blank">Open IMS</a>
+      </div>
+    </header>
+
+    <section class="hero section-panel active" id="section-home">
+      <div class="hero-content">
+        <span class="eyebrow">Company Operations Portal</span>
+        <h1>Litpax Internal Website</h1>
+        <p>Google Forms, MIS Sheets, FMS tools, repair, courier, payments, inventory and dashboards — everything arranged department-wise.</p>
+        <div class="hero-actions">
+          <button class="primary-btn" data-section-jump="forms">Open Forms</button>
+          <button class="secondary-btn" data-section-jump="dashboard">View Dashboards</button>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-stat">
+          <h3>15+</h3>
+          <p>Google Forms</p>
+        </div>
+        <div class="hero-stat">
+          <h3>25+</h3>
+          <p>Sheets & Responses</p>
+        </div>
+        <div class="hero-stat">
+          <h3>Live</h3>
+          <p>Charts & Reports</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-grid section-panel active home-only">
+      <article class="quick-card blue" data-section-jump="forms">
+        <span>□</span>
+        <h3>Forms</h3>
+        <p>Submit daily entries, requests and operational forms.</p>
+      </article>
+      <article class="quick-card green" data-section-jump="sheets">
+        <span>▤</span>
+        <h3>MIS Sheets</h3>
+        <p>Open department-wise working and tracking sheets.</p>
+      </article>
+      <article class="quick-card orange" data-section-jump="dashboard">
+        <span>◈</span>
+        <h3>Dashboards</h3>
+        <p>View live charts for payments, courier and repair.</p>
+      </article>
+      <article class="quick-card purple" data-section-jump="webforms">
+        <span>↗</span>
+        <h3>Web UI Forms</h3>
+        <p>Premium GitHub hosted web forms and tools.</p>
+      </article>
+    </section>
+
+    <section class="section-panel" id="section-forms">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Submit Entries</span>
+          <h2>Google Forms</h2>
+          <p>All operational forms arranged in one clean section.</p>
+        </div>
+        <span class="pill">Forms</span>
+      </div>
+      <div class="tool-grid" id="formsGrid"></div>
+    </section>
+
+    <section class="section-panel" id="section-webforms">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Premium Tools</span>
+          <h2>Web UI Forms</h2>
+          <p>GitHub hosted web forms for service, repair and dealership operations.</p>
+        </div>
+        <span class="pill purple">Web Forms</span>
+      </div>
+      <div class="feature-grid" id="webFormsGrid"></div>
+    </section>
+
+    <section class="section-panel" id="section-sheets">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Daily Working</span>
+          <h2>MIS Sheets</h2>
+          <p>Main company sheets and order-to-delivery department flow.</p>
+        </div>
+        <span class="pill green">Sheets</span>
+      </div>
+      <div class="group-block">
+        <h3>Main MIS Sheets</h3>
+        <div class="tool-grid" id="mainSheetsGrid"></div>
+      </div>
+      <div class="group-block">
+        <h3>Order to Delivery Flow</h3>
+        <div class="tool-grid" id="orderSheetsGrid"></div>
+      </div>
+      <div class="group-block">
+        <h3>Checklist & Inventory</h3>
+        <div class="feature-grid" id="checklistGrid"></div>
+      </div>
+    </section>
+
+    <section class="section-panel" id="section-responses">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Response Data</span>
+          <h2>Google Sheets Responses</h2>
+          <p>All form response sheets from one organised page.</p>
+        </div>
+        <span class="pill">Responses</span>
+      </div>
+      <div class="tool-grid" id="responsesGrid"></div>
+    </section>
+
+    <section class="section-panel" id="section-fms">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Workflow Systems</span>
+          <h2>FMS Tools</h2>
+          <p>Barcode, billing, production, dispatch and delivery workflow systems.</p>
+        </div>
+        <span class="pill orange">FMS</span>
+      </div>
+      <div class="feature-grid" id="fmsGrid"></div>
+    </section>
+
+    <section class="section-panel" id="section-dashboard">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Live Reporting</span>
+          <h2>Dashboards</h2>
+          <p>Embedded Google Sheets charts arranged module-wise.</p>
+        </div>
+        <span class="pill green">Live Charts</span>
+      </div>
+
+      <div class="dashboard-tabs">
+        <button class="dash-tab active" data-dash="payments">Payments</button>
+        <button class="dash-tab" data-dash="courier">Courier</button>
+        <button class="dash-tab" data-dash="repair">Repair</button>
+        <button class="dash-tab" data-dash="inventory">Inventory</button>
+        <button class="dash-tab" data-dash="production">Production</button>
+        <button class="dash-tab" data-dash="dispatch">Dispatch</button>
+      </div>
+
+      <div class="dash-panel active" id="dash-payments">
+        <div class="chart-grid" id="paymentsCharts"></div>
+      </div>
+      <div class="dash-panel" id="dash-courier">
+        <div class="chart-grid" id="courierCharts"></div>
+      </div>
+      <div class="dash-panel" id="dash-repair">
+        <div class="chart-grid" id="repairCharts"></div>
+      </div>
+      <div class="dash-panel" id="dash-inventory">
+        <div class="empty-state"><h3>Inventory Dashboard Area</h3><p>Yahan inventory ke published chart iframe links add karna.</p></div>
+      </div>
+      <div class="dash-panel" id="dash-production">
+        <div class="empty-state"><h3>Production Dashboard Area</h3><p>Yahan production charts add honge.</p></div>
+      </div>
+      <div class="dash-panel" id="dash-dispatch">
+        <div class="empty-state"><h3>Dispatch Dashboard Area</h3><p>Yahan dispatch charts add honge.</p></div>
+      </div>
+    </section>
+
+    <section class="section-panel" id="section-admin">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Admin Area</span>
+          <h2>Admin Tools</h2>
+          <p>Important portals and admin quick access.</p>
+        </div>
+        <span class="pill dark">Admin</span>
+      </div>
+      <div class="feature-grid" id="adminGrid"></div>
+    </section>
+
+    <div class="no-results" id="noResults">
+      <h3>No result found</h3>
+      <p>Search spelling check karo ya section manually open karo.</p>
+    </div>
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
