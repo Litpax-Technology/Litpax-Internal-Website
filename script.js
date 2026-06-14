@@ -55,9 +55,12 @@ const DATA = {
     ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291']
   ],
 
+  ims: [
+    ['Inventory Management System','Stock availability, inward/outward material movement and warehouse records','https://mis-darpan.github.io/IMS/','▦']
+  ],
+
   checklist: [
-    ['Master Checklist File','Open the main checklist file for daily checking and verification','https://docs.google.com/spreadsheets/d/1ayhBVTC269_vNNSAyiNYD-lAjbRj8xVKm9_AfoCYCkE/edit?gid=2092959791#gid=2092959791','☑'],
-    ['Inventory Management System','Open IMS for stock availability, inward/outward material movement and warehouse records','https://mis-darpan.github.io/IMS/','▦']
+    ['Master Checklist File','Open the main checklist file for daily checking and verification','https://docs.google.com/spreadsheets/d/1ayhBVTC269_vNNSAyiNYD-lAjbRj8xVKm9_AfoCYCkE/edit?gid=2092959791#gid=2092959791','☑']
   ],
 
   fms: [
@@ -68,7 +71,6 @@ const DATA = {
   ],
 
   admin: [
-    ['GitHub IMS Portal','Inventory Management System hosted page','https://mis-darpan.github.io/IMS/','⚙'],
     ['Field Service Support','Support ticket system hosted page','https://mis-darpan.github.io/litpax-support-ticket-system/','⚙'],
     ['Repair Web Form','Repair form hosted page','https://mis-darpan.github.io/repairformlitpax/','⚙'],
     ['Service Calls Web Form','Service calls hosted page','https://mis-darpan.github.io/ServiceCallsWebForm/','⚙']
@@ -82,11 +84,13 @@ const DATA = {
       ['Employee Wise Advance','https://docs.google.com/spreadsheets/d/e/2PACX-1vSNwFRHRqRgUjlzmx_nd6OAvNGcnEbNNSozpnXmjsps5dBrJab1XrRbXl_zt_BVNOAOGRQpKpduNl1w/pubchart?oid=1177165219&format=interactive'],
       ['Raw Material Advance Given vs Expense','https://docs.google.com/spreadsheets/d/e/2PACX-1vQpK_KBwbGg9Vsmo3VUa8Abn1Jyu1L6YRtlX8mriIRGWzgrVjIZl8-EnUgFoW_IuIWw64QQDZfm6PsS/pubchart?oid=1953461556&format=interactive']
     ],
+
     courier: [
       ['Last 3 Days — Courier In vs Out','https://docs.google.com/spreadsheets/d/e/2PACX-1vTag9IkTVRF7_9yEo2cdPwhxvbrIToJtbIO6Y-yk_YsCCgao4Hf1Wlw9GJZfoGY0rCPz5mXH79I1F85/pubchart?oid=1866253700&format=interactive'],
       ['State-wise Dispatch','https://docs.google.com/spreadsheets/d/e/2PACX-1vTag9IkTVRF7_9yEo2cdPwhxvbrIToJtbIO6Y-yk_YsCCgao4Hf1Wlw9GJZfoGY0rCPz5mXH79I1F85/pubchart?oid=669325212&format=interactive'],
       ['Courier Company — Charges vs Actual','https://docs.google.com/spreadsheets/d/e/2PACX-1vTag9IkTVRF7_9yEo2cdPwhxvbrIToJtbIO6Y-yk_YsCCgao4Hf1Wlw9GJZfoGY0rCPz5mXH79I1F85/pubchart?oid=518797100&format=interactive']
     ],
+
     repair: [
       ['Total Qty vs Repaired Qty','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=57921950&format=interactive'],
       ['Battery & Charger Repair Summary','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=1310779759&format=interactive'],
@@ -99,74 +103,118 @@ const DATA = {
 };
 
 const TITLES = {
-  home:'Internal Portal',
-  forms:'Google Forms',
-  webforms:'Web UI Forms',
-  sheets:'MIS Sheets',
-  responses:'Response Sheets',
-  fms:'FMS Tools',
-  dashboard:'Dashboards',
-  admin:'Admin Tools'
+  home: 'Internal Portal',
+  forms: 'Forms',
+  sheets: 'MIS Sheets',
+  responses: 'Response Sheets',
+  dashboard: 'Dashboards',
+  admin: 'Admin Tools'
 };
 
 function toolCard(item){
   const [name,type,url] = item;
-  return `<a class="tool-card searchable" href="${url}" target="_blank" data-search="${name} ${type}">
-    <div class="tool-content"><h4>${name}</h4><p>${type}</p></div><div class="tool-type">›</div>
-  </a>`;
+
+  return `
+    <a class="tool-card searchable" href="${url}" target="_blank" data-search="${name} ${type}">
+      <div class="tool-content">
+        <h4>${name}</h4>
+        <p>${type}</p>
+      </div>
+      <div class="tool-type">›</div>
+    </a>
+  `;
 }
 
 function featureCard(item){
   const [name,desc,url,icon] = item;
-  return `<a class="feature-card searchable" href="${url}" target="_blank" data-search="${name} ${desc}">
-    <div class="feature-left"><div class="feature-icon">${icon}</div><div><h4>${name}</h4><p>${desc}</p></div></div>
-    <span class="open-link">Open</span>
-  </a>`;
+
+  return `
+    <a class="feature-card searchable" href="${url}" target="_blank" data-search="${name} ${desc}">
+      <div class="feature-left">
+        <div class="feature-icon">${icon}</div>
+        <div>
+          <h4>${name}</h4>
+          <p>${desc}</p>
+        </div>
+      </div>
+      <span class="open-link">Open</span>
+    </a>
+  `;
 }
 
 function chartCard(item){
   const [title,url] = item;
-  return `<div class="chart-card searchable" data-search="${title}">
-    <div class="chart-head"><h4>${title}</h4><span class="chart-dot"></span></div>
-    <div class="chart-wrap"><iframe src="${url}" loading="lazy" scrolling="no"></iframe></div>
-  </div>`;
+
+  return `
+    <div class="chart-card searchable" data-search="${title}">
+      <div class="chart-head">
+        <h4>${title}</h4>
+        <span class="chart-dot"></span>
+      </div>
+      <div class="chart-wrap">
+        <iframe src="${url}" loading="lazy" scrolling="no"></iframe>
+      </div>
+    </div>
+  `;
 }
 
 function render(){
   document.getElementById('formsGrid').innerHTML = DATA.forms.map(toolCard).join('');
   document.getElementById('webFormsGrid').innerHTML = DATA.webForms.map(featureCard).join('');
+
   document.getElementById('mainSheetsGrid').innerHTML = DATA.mainSheets.map(toolCard).join('');
   document.getElementById('orderSheetsGrid').innerHTML = DATA.orderSheets.map(toolCard).join('');
+
   document.getElementById('responsesGrid').innerHTML = DATA.responses.map(toolCard).join('');
+
+  document.getElementById('imsGrid').innerHTML = DATA.ims.map(featureCard).join('');
   document.getElementById('checklistGrid').innerHTML = DATA.checklist.map(featureCard).join('');
   document.getElementById('fmsGrid').innerHTML = DATA.fms.map(featureCard).join('');
   document.getElementById('adminGrid').innerHTML = DATA.admin.map(featureCard).join('');
+
   document.getElementById('paymentsCharts').innerHTML = DATA.charts.payments.map(chartCard).join('');
   document.getElementById('courierCharts').innerHTML = DATA.charts.courier.map(chartCard).join('');
   document.getElementById('repairCharts').innerHTML = DATA.charts.repair.map(chartCard).join('');
 }
 
 function showSection(name){
-  document.querySelectorAll('.section-panel').forEach(section=>section.classList.remove('active'));
-  document.querySelectorAll('.home-only').forEach(section=>section.classList.remove('active'));
+  document.querySelectorAll('.section-panel').forEach(section => {
+    section.classList.remove('active');
+  });
+
+  document.querySelectorAll('.home-only').forEach(section => {
+    section.classList.remove('active');
+  });
 
   if(name === 'home'){
     document.getElementById('section-home').classList.add('active');
-    document.querySelectorAll('.home-only').forEach(section=>section.classList.add('active'));
-  }else{
+
+    document.querySelectorAll('.home-only').forEach(section => {
+      section.classList.add('active');
+    });
+  } else {
     const target = document.getElementById('section-' + name);
     if(target) target.classList.add('active');
   }
 
-  document.querySelectorAll('.nav-link').forEach(btn=>btn.classList.remove('active'));
+  document.querySelectorAll('.nav-link').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
   const navBtn = document.querySelector(`.nav-link[data-section="${name}"]`);
   if(navBtn) navBtn.classList.add('active');
 
   document.getElementById('pageTitle').textContent = TITLES[name] || 'Internal Portal';
+
   document.getElementById('portalSearch').value = '';
   filterCards('');
+
   closeSidebar();
-  window.scrollTo({top:0,behavior:'smooth'});
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 }
 
 function filterCards(query){
@@ -174,19 +222,27 @@ function filterCards(query){
   const cards = document.querySelectorAll('.searchable');
   let visible = 0;
 
-  cards.forEach(card=>{
+  cards.forEach(card => {
     const text = (card.dataset.search || card.textContent).toLowerCase();
     const match = !q || text.includes(q);
+
     card.classList.toggle('hide-by-search', !match);
+
     if(match) visible++;
   });
 
-  document.getElementById('noResults').style.display = q && visible === 0 ? 'flex' : 'none';
+  document.getElementById('noResults').style.display =
+    q && visible === 0 ? 'flex' : 'none';
 }
 
 function showDash(name){
-  document.querySelectorAll('.dash-tab').forEach(btn=>btn.classList.remove('active'));
-  document.querySelectorAll('.dash-panel').forEach(panel=>panel.classList.remove('active'));
+  document.querySelectorAll('.dash-tab').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  document.querySelectorAll('.dash-panel').forEach(panel => {
+    panel.classList.remove('active');
+  });
 
   const btn = document.querySelector(`.dash-tab[data-dash="${name}"]`);
   const panel = document.getElementById('dash-' + name);
@@ -207,18 +263,27 @@ function closeSidebar(){
 
 render();
 
-document.querySelectorAll('.nav-link').forEach(btn=>{
-  btn.addEventListener('click',()=>showSection(btn.dataset.section));
+document.querySelectorAll('.nav-link').forEach(btn => {
+  btn.addEventListener('click', () => {
+    showSection(btn.dataset.section);
+  });
 });
 
-document.querySelectorAll('[data-section-jump]').forEach(el=>{
-  el.addEventListener('click',()=>showSection(el.dataset.sectionJump));
+document.querySelectorAll('[data-section-jump]').forEach(el => {
+  el.addEventListener('click', () => {
+    showSection(el.dataset.sectionJump);
+  });
 });
 
-document.querySelectorAll('.dash-tab').forEach(btn=>{
-  btn.addEventListener('click',()=>showDash(btn.dataset.dash));
+document.querySelectorAll('.dash-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    showDash(btn.dataset.dash);
+  });
 });
 
-document.getElementById('portalSearch').addEventListener('input',e=>filterCards(e.target.value));
-document.getElementById('menuBtn').addEventListener('click',toggleSidebar);
-document.getElementById('overlay').addEventListener('click',closeSidebar);
+document.getElementById('portalSearch').addEventListener('input', e => {
+  filterCards(e.target.value);
+});
+
+document.getElementById('menuBtn').addEventListener('click', toggleSidebar);
+document.getElementById('overlay').addEventListener('click', closeSidebar);
