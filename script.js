@@ -16,24 +16,28 @@ const DATA = {
     ['Interviewer Entry Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfl0frLQf-VXYRL07LkLFbrJxVXAxhw0AKOaCG3OMxeb3APvQ/viewform?usp=dialog'],
     ['Employee Advance Request Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdY-1dRa1MPec6_YPvR_nBHMLmMLRkxqzWZFMb_ilRtwxqwpQ/viewform']
   ],
+
   webForms: [
     ['Field Service Support','Raise technician support tickets and field service requests','https://mis-darpan.github.io/litpax-support-ticket-system/','↗'],
     ['Repair Form','Create and manage repair related requests','https://mis-darpan.github.io/repairformlitpax/','↗'],
     ['Service Calls Form','Manage service requests, complaints and support entries','https://mis-darpan.github.io/ServiceCallsWebForm/','↗'],
     ['Dealership Enquiry Form','Submit dealership and distributor partnership enquiries','https://mis-darpan.github.io/Dealership-Agreement-Web-Form/','↗']
   ],
+
   mainSheets: [
-    ['Service Sheet','Main Sheet','https://docs.google.com/spreadsheets/d/1POqxaWq3v1nk0mZF0-e7KhKrHbX_AlMWqUewk17tm0s/edit?gid=2116141456#gid=2116141456'],
-    ['Stock Sheet','Main Sheet','https://docs.google.com/spreadsheets/d/1-RIiXIEDFvIdw84SHifI8iCMiooegmTsGQsd0RgeWuI/edit?gid=584720689#gid=584720689'],
-    ['Repair Sheet','Main Sheet','https://docs.google.com/spreadsheets/d/1ythER3lvxeUS-ke6h_KC-1l8855sQQuiiZ4eQ2BzE5M/edit?gid=0#gid=0'],
-    ['Dispatch Sheet','Main Sheet','https://docs.google.com/spreadsheets/d/1_Gm1zQQExpYhSaN7umiTXNWZ71oZJGSRsDR3davQRwc/edit?gid=0#gid=0']
+    ['Service Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1POqxaWq3v1nk0mZF0-e7KhKrHbX_AlMWqUewk17tm0s/edit?gid=2116141456#gid=2116141456'],
+    ['Stock Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1-RIiXIEDFvIdw84SHifI8iCMiooegmTsGQsd0RgeWuI/edit?gid=584720689#gid=584720689'],
+    ['Repair Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1ythER3lvxeUS-ke6h_KC-1l8855sQQuiiZ4eQ2BzE5M/edit?gid=0#gid=0'],
+    ['Dispatch Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1_Gm1zQQExpYhSaN7umiTXNWZ71oZJGSRsDR3davQRwc/edit?gid=0#gid=0']
   ],
+
   orderSheets: [
-    ['Sales Department','FMS Flow','https://docs.google.com/spreadsheets/d/19TlBMYs8LS_COjqIjCvPaFzTNcpmhAE5q1odACOi__4/edit?gid=971562839#gid=971562839'],
-    ['Production Department','FMS Flow','https://docs.google.com/spreadsheets/d/1znTaVQNuqgSFWkkNrJ1IIs216cfeXH00GfE33T6XLfg/edit?gid=0#gid=0'],
-    ['Accounts Department','FMS Flow','https://docs.google.com/spreadsheets/d/1r64_4aWJ_ePgWOrMPTc9y5YxPUEHdC2ssq1X7mAtihA/edit?gid=0#gid=0'],
-    ['Dispatch Department','FMS Flow','https://docs.google.com/spreadsheets/d/14Y7DjL72EJGkAJgRxtt5I4uw_6cgaeTm5shpmJthDW4/edit?gid=0#gid=0']
+    ['Sales Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/19TlBMYs8LS_COjqIjCvPaFzTNcpmhAE5q1odACOi__4/edit?gid=971562839#gid=971562839'],
+    ['Production Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/1znTaVQNuqgSFWkkNrJ1IIs216cfeXH00GfE33T6XLfg/edit?gid=0#gid=0'],
+    ['Accounts Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/1r64_4aWJ_ePgWOrMPTc9y5YxPUEHdC2ssq1X7mAtihA/edit?gid=0#gid=0'],
+    ['Dispatch Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/14Y7DjL72EJGkAJgRxtt5I4uw_6cgaeTm5shpmJthDW4/edit?gid=0#gid=0']
   ],
+
   responses: [
     ['Dealership Enquiry Response','Response Sheet','https://docs.google.com/spreadsheets/d/1y2v5qbvTc7Mnb7lgxRlKYdL8B0t1Mdsaw4j5dTGYGN4/edit?gid=819191422#gid=819191422'],
     ['Material Required Response','Response Sheet','https://docs.google.com/spreadsheets/d/1zC4MmpJ9O3oz82D47_dQWNIvDA6L0aJ33rr60vsqrgs/edit?gid=881168244#gid=881168244'],
@@ -50,22 +54,26 @@ const DATA = {
     ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
     ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291']
   ],
+
   checklist: [
     ['Master Checklist File','Open the main checklist file for daily checking and verification','https://docs.google.com/spreadsheets/d/1ayhBVTC269_vNNSAyiNYD-lAjbRj8xVKm9_AfoCYCkE/edit?gid=2092959791#gid=2092959791','☑'],
     ['Inventory Management System','Open IMS for stock availability, inward/outward material movement and warehouse records','https://mis-darpan.github.io/IMS/','▦']
   ],
+
   fms: [
     ['Bar Code Generation FMS','Barcode generation and production tracking system','https://docs.google.com/spreadsheets/d/17z88rv9VASDJy956wc-O3s7XV0qxscmuKdou2PR2PaM/edit?gid=0#gid=0','▣'],
     ['Generated Bar Code for Billing FMS','Generated barcode and billing management sheet','https://docs.google.com/spreadsheets/d/1QagqV8Oaxv_CTLgTBjroKlG7cJQ6nPuG5WYI5zERVuU/edit?gid=0#gid=0','▣'],
     ['2 Wheeler Production FMS','Production workflow and output tracking','https://docs.google.com/spreadsheets/d/1pqnyaIiuzgxaVTjzH_nTR9-r7Lh2sTyuuMQ2OVUVs20/edit?gid=1415594777#gid=1415594777','⇄'],
     ['Dispatch to Delivery FMS','Dispatch and delivery workflow monitoring','https://docs.google.com/spreadsheets/d/171_8pxTY2inG933cMk2GmQKSihBqv3BIPZhpWoIn9JA/edit?gid=0#gid=0','⇄']
   ],
+
   admin: [
     ['GitHub IMS Portal','Inventory Management System hosted page','https://mis-darpan.github.io/IMS/','⚙'],
     ['Field Service Support','Support ticket system hosted page','https://mis-darpan.github.io/litpax-support-ticket-system/','⚙'],
     ['Repair Web Form','Repair form hosted page','https://mis-darpan.github.io/repairformlitpax/','⚙'],
     ['Service Calls Web Form','Service calls hosted page','https://mis-darpan.github.io/ServiceCallsWebForm/','⚙']
   ],
+
   charts: {
     payments: [
       ['Expense Breakdown by Purpose','https://docs.google.com/spreadsheets/d/e/2PACX-1vRd5S-T41DFVGj92I-_lWEVt2c1AoaGXgwgPFCahCWfJXPVVa6U0LMXdrvi8LDvfrVqARPr6SLGQM8h/pubchart?oid=1728129396&format=interactive'],
@@ -144,7 +152,7 @@ function showSection(name){
 
   if(name === 'home'){
     document.getElementById('section-home').classList.add('active');
-    document.querySelector('.home-only').classList.add('active');
+    document.querySelectorAll('.home-only').forEach(section=>section.classList.add('active'));
   }else{
     const target = document.getElementById('section-' + name);
     if(target) target.classList.add('active');
@@ -165,20 +173,24 @@ function filterCards(query){
   const q = query.trim().toLowerCase();
   const cards = document.querySelectorAll('.searchable');
   let visible = 0;
+
   cards.forEach(card=>{
     const text = (card.dataset.search || card.textContent).toLowerCase();
     const match = !q || text.includes(q);
     card.classList.toggle('hide-by-search', !match);
     if(match) visible++;
   });
+
   document.getElementById('noResults').style.display = q && visible === 0 ? 'flex' : 'none';
 }
 
 function showDash(name){
   document.querySelectorAll('.dash-tab').forEach(btn=>btn.classList.remove('active'));
   document.querySelectorAll('.dash-panel').forEach(panel=>panel.classList.remove('active'));
+
   const btn = document.querySelector(`.dash-tab[data-dash="${name}"]`);
   const panel = document.getElementById('dash-' + name);
+
   if(btn) btn.classList.add('active');
   if(panel) panel.classList.add('active');
 }
@@ -187,6 +199,7 @@ function toggleSidebar(){
   document.getElementById('sidebar').classList.toggle('open');
   document.getElementById('overlay').classList.toggle('open');
 }
+
 function closeSidebar(){
   document.getElementById('sidebar').classList.remove('open');
   document.getElementById('overlay').classList.remove('open');
