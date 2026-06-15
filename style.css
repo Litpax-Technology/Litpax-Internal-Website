@@ -45,7 +45,7 @@ body {
   min-height: 100vh;
   color: var(--tx);
   overflow-x: hidden;
-  background: #f3f4f6;
+  background: #ffffff;
 }
 
 a { text-decoration:none; color:inherit; }
@@ -63,7 +63,7 @@ button,input { font-family:inherit; }
   border-radius: var(--r-2xl);
   overflow: hidden;
   transition: transform .26s cubic-bezier(.4,0,.2,1);
-  background: #f3f4f6;
+  background: #ffffff;
   border: 1px solid #e5e7eb;
   box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 12px 32px rgba(0,0,0,.06);
 }
@@ -149,6 +149,7 @@ button,input { font-family:inherit; }
   width: calc(100% - 246px);
   padding: 10px 16px 40px 8px;
   display:flex; flex-direction:column; gap:10px;
+  background: #ffffff;
 }
 
 /* ── TOPBAR ──────────────────────────────── */
@@ -156,8 +157,8 @@ button,input { font-family:inherit; }
   position: sticky; top:10px; z-index:500;
   min-height:54px; padding:8px 14px;
   border-radius:var(--r-xl);
-  background:rgba(255,255,255,.94);
-  border:1px solid rgba(229,231,235,.9);
+  background:#ffffff;
+  border:1px solid #eeeeee;
   backdrop-filter:blur(20px);
   box-shadow: var(--sh-2);
   display:flex; align-items:center; justify-content:space-between; gap:12px;
@@ -266,7 +267,7 @@ button,input { font-family:inherit; }
 
 .hm-card {
   position:relative; overflow:hidden;
-  background:#ffffff; border:1px solid var(--line);
+  background:#ffffff; border:1px solid #eeeeee;
   border-radius:var(--r-xl); padding:16px 14px;
   cursor:pointer; display:flex; align-items:center; gap:12px;
   box-shadow:var(--sh-1); transition:.2s ease;
@@ -295,7 +296,7 @@ button,input { font-family:inherit; }
 
 /* ── INNER PANELS ────────────────────────── */
 .section-panel:not(.hero):not(.home-modules) {
-  background:#ffffff; border:1px solid var(--line);
+  background:#ffffff; border:1px solid #ececec;
   border-radius:var(--r-2xl); padding:24px; box-shadow:var(--sh-1);
 }
 
@@ -340,7 +341,7 @@ button,input { font-family:inherit; }
 
 .tool-card {
   position:relative; overflow:hidden; min-height:58px; padding:10px 12px;
-  border-radius:var(--r-lg); background:#fafafa; border:1px solid var(--line);
+  border-radius:var(--r-lg); background:#ffffff; border:1px solid #eeeeee;
   box-shadow:var(--sh-1); display:flex; align-items:center; justify-content:space-between;
   gap:10px; transition:.16s ease; cursor:pointer;
 }
@@ -367,7 +368,7 @@ button,input { font-family:inherit; }
 .feature-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(270px,100%),1fr)); gap:10px; }
 
 .feature-card {
-  border-radius:var(--r-xl); background:#ffffff; border:1px solid var(--line);
+  border-radius:var(--r-xl); background:#ffffff; border:1px solid #eeeeee;
   box-shadow:var(--sh-1); padding:17px;
   display:flex; align-items:flex-start; justify-content:space-between; gap:13px;
   transition:.2s ease; position:relative; overflow:hidden;
@@ -485,7 +486,49 @@ button,input { font-family:inherit; }
 .hide-by-search { display:none !important; }
 
 /* ── ANIMATIONS ──────────────────────────── */
-@keyframes panelIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+@keyframes panelIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(16px)} to{opacity:1;transform:translateY(0)} }
+
+.tool-card {
+  animation: fadeUp .3s ease both;
+}
+.tool-grid .tool-card:nth-child(1)  { animation-delay:.04s }
+.tool-grid .tool-card:nth-child(2)  { animation-delay:.08s }
+.tool-grid .tool-card:nth-child(3)  { animation-delay:.12s }
+.tool-grid .tool-card:nth-child(4)  { animation-delay:.16s }
+.tool-grid .tool-card:nth-child(5)  { animation-delay:.20s }
+.tool-grid .tool-card:nth-child(6)  { animation-delay:.24s }
+.tool-grid .tool-card:nth-child(7)  { animation-delay:.28s }
+.tool-grid .tool-card:nth-child(8)  { animation-delay:.32s }
+.tool-grid .tool-card:nth-child(9)  { animation-delay:.36s }
+.tool-grid .tool-card:nth-child(10) { animation-delay:.40s }
+.tool-grid .tool-card:nth-child(11) { animation-delay:.44s }
+.tool-grid .tool-card:nth-child(12) { animation-delay:.48s }
+.tool-grid .tool-card:nth-child(n+13) { animation-delay:.52s }
+
+.feature-card {
+  animation: fadeUp .32s ease both;
+}
+.feature-grid .feature-card:nth-child(1) { animation-delay:.05s }
+.feature-grid .feature-card:nth-child(2) { animation-delay:.12s }
+.feature-grid .feature-card:nth-child(3) { animation-delay:.19s }
+.feature-grid .feature-card:nth-child(n+4) { animation-delay:.26s }
+
+.hm-card {
+  animation: fadeUp .28s ease both;
+}
+.home-modules .hm-card:nth-child(1) { animation-delay:.04s }
+.home-modules .hm-card:nth-child(2) { animation-delay:.09s }
+.home-modules .hm-card:nth-child(3) { animation-delay:.14s }
+.home-modules .hm-card:nth-child(4) { animation-delay:.19s }
+.home-modules .hm-card:nth-child(5) { animation-delay:.24s }
+
+.hero-stat {
+  animation: fadeUp .32s ease both;
+}
+.hero-stat:nth-child(1) { animation-delay:.1s }
+.hero-stat:nth-child(2) { animation-delay:.18s }
+.hero-stat:nth-child(3) { animation-delay:.26s }
 @keyframes dotPulse { 0%,100%{box-shadow:0 0 0 3px rgba(5,150,105,.15)} 50%{box-shadow:0 0 0 7px rgba(5,150,105,.04)} }
 
 /* ── RESPONSIVE ──────────────────────────── */
