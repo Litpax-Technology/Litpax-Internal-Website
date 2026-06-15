@@ -258,10 +258,11 @@ button,input { font-family:inherit; }
 
 /* ── HOME MODULES ────────────────────────── */
 .home-modules {
-  display:grid !important;
   grid-template-columns:repeat(5,minmax(0,1fr));
   gap:9px;
 }
+.home-modules.active { display:grid !important; }
+.home-modules:not(.active) { display:none !important; }
 
 .hm-card {
   position:relative; overflow:hidden;
