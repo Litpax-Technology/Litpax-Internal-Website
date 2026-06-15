@@ -87,37 +87,44 @@ button,input { font-family:inherit; }
   flex-direction: column;
   border-radius: var(--r-2xl);
   background:
-    radial-gradient(ellipse 160% 45% at 50% 0%, rgba(165,180,252,.55) 0%, transparent 62%),
-    radial-gradient(ellipse 100% 35% at 110% 100%, rgba(110,231,183,.45) 0%, transparent 60%),
-    radial-gradient(ellipse 80% 30% at -10% 62%, rgba(196,181,253,.45) 0%, transparent 55%),
-    #ffffff;
+    repeating-linear-gradient(
+      -45deg,
+      rgba(99,102,241,.04) 0px,
+      rgba(99,102,241,.04) 1.5px,
+      transparent 1.5px,
+      transparent 18px
+    ),
+    linear-gradient(160deg, #eef2ff 0%, #ffffff 55%, #f0fdf4 100%);
   border: 1px solid var(--sb-border);
   box-shadow: 0 2px 4px rgba(0,0,0,.03), 0 10px 30px rgba(0,0,0,.07), 0 24px 52px rgba(0,0,0,.05);
   overflow: hidden;
   transition: transform .26s cubic-bezier(.4,0,.2,1);
 }
 
-/* subtle dot-grid pattern */
+/* top-right decorative ring */
 .sidebar::before {
   content: '';
   position: absolute;
-  inset: 0;
-  background-image: radial-gradient(circle, rgba(79,70,229,.22) 1.5px, transparent 1.5px);
-  background-size: 16px 16px;
+  top: -60px;
+  right: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  border: 36px solid rgba(99,102,241,.07);
   pointer-events: none;
   z-index: 0;
 }
 
-/* decorative ring top-right */
+/* bottom-left decorative ring */
 .sidebar::after {
   content: '';
   position: absolute;
-  top: -44px;
-  right: -44px;
-  width: 180px;
-  height: 180px;
+  bottom: -40px;
+  left: -40px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  border: 32px solid rgba(99,102,241,.14);
+  border: 24px solid rgba(16,185,129,.06);
   pointer-events: none;
   z-index: 0;
 }
