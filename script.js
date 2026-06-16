@@ -66,7 +66,7 @@ const DATA = {
   fms: [
     ['Bar Code Generation FMS','Barcode generation and production tracking system','https://docs.google.com/spreadsheets/d/17z88rv9VASDJy956wc-O3s7XV0qxscmuKdou2PR2PaM/edit?gid=0#gid=0','▣'],
     ['Generated Bar Code for Billing FMS','Generated barcode and billing management sheet','https://docs.google.com/spreadsheets/d/1QagqV8Oaxv_CTLgTBjroKlG7cJQ6nPuG5WYI5zERVuU/edit?gid=0#gid=0','▣'],
-    ['2 Wheeler Production FMS','Production workflow and output tracking','https://docs.google.com/spreadsheets/d/1uaZOMO8n0mWBKsJAa4JtROKkU7Gq8sOTH1y6Cj83Cq0/edit?gid=811920351#gid=811920351','⇄'],
+    ['2 Wheeler Production FMS','Production workflow and output tracking','https://docs.google.com/spreadsheets/d/1pqnyaIiuzgxaVTjzH_nTR9-r7Lh2sTyuuMQ2OVUVs20/edit?gid=1415594777#gid=1415594777','⇄'],
     ['Dispatch to Delivery FMS','Dispatch and delivery workflow monitoring','https://docs.google.com/spreadsheets/d/171_8pxTY2inG933cMk2GmQKSihBqv3BIPZhpWoIn9JA/edit?gid=0#gid=0','⇄']
   ],
 
@@ -157,8 +157,7 @@ function featureCard(item){
 }
 
 function chartCard(item){
-  const [title, url] = item;
-  const sized = url + '&w=900&h=500';
+  const [title,url] = item;
   return `
     <div class="chart-card searchable" data-search="${title}">
       <div class="chart-head">
@@ -166,7 +165,7 @@ function chartCard(item){
         <span class="chart-dot"></span>
       </div>
       <div class="chart-wrap">
-        <iframe src="${sized}" loading="lazy" scrolling="no"></iframe>
+        <iframe src="${url}" loading="lazy" scrolling="no"></iframe>
       </div>
     </div>
   `;
@@ -176,7 +175,7 @@ function paymentsGroupedHTML(){
   return DATA.charts.payments.groups.map(group => `
     <div class="group-block">
       <h3>${group.label}</h3>
-      <div class="chart-grid">
+      <div class="chart-grid" style="grid-template-columns: repeat(auto-fit,minmax(min(480px,100%),1fr));">
         ${group.charts.map(chartCard).join('')}
       </div>
     </div>
