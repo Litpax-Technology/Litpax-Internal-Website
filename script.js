@@ -80,8 +80,8 @@ const DATA = {
   ],
 
   repairResponses: [
-    ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
-    ['Material Required Repair Response','Response Sheet','https://docs.google.com/spreadsheets/d/1XnEiXUe7wVBEu8LYxrVOn1qfdV4dtWC9zkPuf9N1qRY/edit?gid=758946040#gid=758946040']
+    ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0']
+    
   ],
 
   webFormResponses: [
