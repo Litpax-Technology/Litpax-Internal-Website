@@ -14,7 +14,8 @@ const DATA = {
     ['Supplier Payment Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSc4jcqRYbXsD0TT8x9BtdJu9G4ynwEIzCyDh9TFBfW_b13aAQ/viewform?usp=dialog'],
     ['Advance Replacement Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfiO6fVHtltr_TaTHRnXBpogCO54KOOTnb7UCZ-lhMIEGj4bw/viewform?usp=dialog'],
     ['Interviewer Entry Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfl0frLQf-VXYRL07LkLFbrJxVXAxhw0AKOaCG3OMxeb3APvQ/viewform?usp=dialog'],
-    ['Employee Advance Request Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdY-1dRa1MPec6_YPvR_nBHMLmMLRkxqzWZFMb_ilRtwxqwpQ/viewform']
+    ['Employee Advance Request Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdY-1dRa1MPec6_YPvR_nBHMLmMLRkxqzWZFMb_ilRtwxqwpQ/viewform'],
+    ['Material Gatepass Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfDuPg5YMG1O-nGmNu2Cl63RvNDmSssQATpbOYn5rXGQ3xVjg/viewform']
   ],
 
   webForms: [
@@ -52,7 +53,8 @@ const DATA = {
     ['Advance Replacement Response','Response Sheet','https://docs.google.com/spreadsheets/d/18n8V45mXeRUIwCqnFrA_zcFBJ-8xGjDlTDYs_7rj3DY/edit?gid=1602038940#gid=1602038940'],
     ['Interviewer Entry Response','Response Sheet','https://docs.google.com/spreadsheets/d/1a09fcVRyT4vz3QS3O3avWDq_bZ9zXDfPdWyFMFP6kCA/edit?gid=1539020083#gid=1539020083'],
     ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
-    ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291']
+    ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291'],
+    ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245']
   ],
 
   ims: [
