@@ -25,6 +25,10 @@ const DATA = {
     ['Dealership Enquiry Form','Submit dealership and distributor partnership enquiries','https://mis-darpan.github.io/Dealership-Agreement-Web-Form/','↗']
   ],
 
+  mainSheets: [
+    ['Stock Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1-RIiXIEDFvIdw84SHifI8iCMiooegmTsGQsd0RgeWuI/edit?gid=584720689#gid=584720689']
+  ],
+
   orderSheets: [
     ['Sales Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/19TlBMYs8LS_COjqIjCvPaFzTNcpmhAE5q1odACOi__4/edit?gid=971562839#gid=971562839'],
     ['Production Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/1znTaVQNuqgSFWkkNrJ1IIs216cfeXH00GfE33T6XLfg/edit?gid=0#gid=0'],
