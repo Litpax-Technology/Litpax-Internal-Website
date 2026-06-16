@@ -26,10 +26,7 @@ const DATA = {
   ],
 
   mainSheets: [
-    ['Service Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1POqxaWq3v1nk0mZF0-e7KhKrHbX_AlMWqUewk17tm0s/edit?gid=2116141456#gid=2116141456'],
-    ['Stock Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1-RIiXIEDFvIdw84SHifI8iCMiooegmTsGQsd0RgeWuI/edit?gid=584720689#gid=584720689'],
-    ['Repair Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1ythER3lvxeUS-ke6h_KC-1l8855sQQuiiZ4eQ2BzE5M/edit?gid=0#gid=0'],
-    ['Dispatch Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1_Gm1zQQExpYhSaN7umiTXNWZ71oZJGSRsDR3davQRwc/edit?gid=0#gid=0']
+    ['Stock Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1-RIiXIEDFvIdw84SHifI8iCMiooegmTsGQsd0RgeWuI/edit?gid=584720689#gid=584720689']
   ],
 
   orderSheets: [
