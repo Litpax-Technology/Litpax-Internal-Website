@@ -72,6 +72,19 @@ const DATA = {
     ['Dispatch to Delivery FMS','Dispatch and delivery workflow monitoring','https://docs.google.com/spreadsheets/d/171_8pxTY2inG933cMk2GmQKSihBqv3BIPZhpWoIn9JA/edit?gid=0#gid=0','⇄']
   ],
 
+  repairForms: [
+    ['Field Service Support','Raise technician support tickets and field service requests','https://mis-darpan.github.io/litpax-support-ticket-system/','↗'],
+    ['Repair Form','Create and manage repair related requests','https://mis-darpan.github.io/repairformlitpax/','↗'],
+    ['Service Calls Form','Manage service requests, complaints and support entries','https://mis-darpan.github.io/ServiceCallsWebForm/','↗']
+  ],
+
+  repairSheets: [
+    ['Repair Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1ythER3lvxeUS-ke6h_KC-1l8855sQQuiiZ4eQ2BzE5M/edit?gid=0#gid=0'],
+    ['Service Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1POqxaWq3v1nk0mZF0-e7KhKrHbX_AlMWqUewk17tm0s/edit?gid=2116141456#gid=2116141456'],
+    ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
+    ['Material Required Repair Response','Response Sheet','https://docs.google.com/spreadsheets/d/1XnEiXUe7wVBEu8LYxrVOn1qfdV4dtWC9zkPuf9N1qRY/edit?gid=758946040#gid=758946040']
+  ],
+
   charts: {
     payments: {
       groups: [
@@ -97,13 +110,11 @@ const DATA = {
         }
       ]
     },
-
     courier: [
       ['Last 3 Days — Courier In vs Out','https://docs.google.com/spreadsheets/d/e/2PACX-1vTag9IkTVRF7_9yEo2cdPwhxvbrIToJtbIO6Y-yk_YsCCgao4Hf1Wlw9GJZfoGY0rCPz5mXH79I1F85/pubchart?oid=1866253700&format=interactive'],
       ['State-wise Dispatch','https://docs.google.com/spreadsheets/d/e/2PACX-1vTag9IkTVRF7_9yEo2cdPwhxvbrIToJtbIO6Y-yk_YsCCgao4Hf1Wlw9GJZfoGY0rCPz5mXH79I1F85/pubchart?oid=669325212&format=interactive'],
       ['Courier Company — Charges vs Actual','https://docs.google.com/spreadsheets/d/e/2PACX-1vTag9IkTVRF7_9yEo2cdPwhxvbrIToJtbIO6Y-yk_YsCCgao4Hf1Wlw9GJZfoGY0rCPz5mXH79I1F85/pubchart?oid=518797100&format=interactive']
     ],
-
     repair: [
       ['Total Qty vs Repaired Qty','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=57921950&format=interactive'],
       ['Battery & Charger Repair Summary','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=1310779759&format=interactive'],
@@ -116,12 +127,13 @@ const DATA = {
 };
 
 const TITLES = {
-  home: 'Internal Portal',
-  forms: 'Forms',
-  sheets: 'MIS Sheets',
+  home:      'Internal Portal',
+  forms:     'Forms',
+  sheets:    'Sales & Marketing',
+  repair:    'Repair & Services',
   responses: 'Response Sheets',
   dashboard: 'Dashboards',
-  admin: 'Admin Tools'
+  admin:     'Admin Tools'
 };
 
 function setHTML(id, html){
@@ -185,18 +197,23 @@ function paymentsGroupedHTML(){
 }
 
 function render(){
-  setHTML('formsGrid', DATA.forms.map(toolCard).join(''));
-  setHTML('webFormsGrid', DATA.webForms.map(featureCard).join(''));
-  setHTML('mainSheetsGrid', DATA.mainSheets.map(toolCard).join(''));
+  setHTML('formsGrid',       DATA.forms.map(toolCard).join(''));
+  setHTML('webFormsGrid',    DATA.webForms.map(featureCard).join(''));
+  setHTML('mainSheetsGrid',  DATA.mainSheets.map(toolCard).join(''));
   setHTML('orderSheetsGrid', DATA.orderSheets.map(toolCard).join(''));
-  setHTML('responsesGrid', DATA.responses.map(toolCard).join(''));
-  setHTML('imsGrid', DATA.ims.map(featureCard).join(''));
-  setHTML('checklistGrid', DATA.checklist.map(featureCard).join(''));
-  setHTML('fmsGrid', DATA.fms.map(featureCard).join(''));
+  setHTML('responsesGrid',   DATA.responses.map(toolCard).join(''));
+  setHTML('imsGrid',         DATA.ims.map(featureCard).join(''));
+  setHTML('checklistGrid',   DATA.checklist.map(featureCard).join(''));
+  setHTML('fmsGrid',         DATA.fms.map(featureCard).join(''));
 
+  // Repair & Services
+  setHTML('repairFormsGrid',  DATA.repairForms.map(featureCard).join(''));
+  setHTML('repairSheetsGrid', DATA.repairSheets.map(toolCard).join(''));
+
+  // Charts
   setHTML('paymentsCharts', paymentsGroupedHTML());
-  setHTML('courierCharts', `<div class="chart-grid">${DATA.charts.courier.map(chartCard).join('')}</div>`);
-  setHTML('repairCharts', `<div class="chart-grid">${DATA.charts.repair.map(chartCard).join('')}</div>`);
+  setHTML('courierCharts',  `<div class="chart-grid">${DATA.charts.courier.map(chartCard).join('')}</div>`);
+  setHTML('repairCharts',   `<div class="chart-grid">${DATA.charts.repair.map(chartCard).join('')}</div>`);
 }
 
 function showSection(name){
@@ -228,14 +245,12 @@ function filterCards(query){
   const q = query.trim().toLowerCase();
   const cards = document.querySelectorAll('.searchable');
   let visible = 0;
-
   cards.forEach(card => {
     const text = (card.dataset.search || card.textContent).toLowerCase();
     const match = !q || text.includes(q);
     card.classList.toggle('hide-by-search', !match);
     if(match) visible++;
   });
-
   const noResults = document.getElementById('noResults');
   if(noResults) noResults.style.display = q && visible === 0 ? 'flex' : 'none';
 }
