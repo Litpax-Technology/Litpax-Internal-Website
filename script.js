@@ -49,7 +49,6 @@ const DATA = {
     ['Supplier Payment Response','Response Sheet','https://docs.google.com/spreadsheets/d/1hI03vzLHNJUPTmhV1wB8iKguqpfcUivv7aUQfviRYW0/edit?gid=1705418553#gid=1705418553'],
     ['Advance Replacement Response','Response Sheet','https://docs.google.com/spreadsheets/d/18n8V45mXeRUIwCqnFrA_zcFBJ-8xGjDlTDYs_7rj3DY/edit?gid=1602038940#gid=1602038940'],
     ['Interviewer Entry Response','Response Sheet','https://docs.google.com/spreadsheets/d/1a09fcVRyT4vz3QS3O3avWDq_bZ9zXDfPdWyFMFP6kCA/edit?gid=1539020083#gid=1539020083'],
-    ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
     ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291'],
     ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245']
   ],
