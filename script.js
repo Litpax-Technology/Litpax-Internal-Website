@@ -18,6 +18,10 @@ const DATA = {
     ['Material Gatepass Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfDuPg5YMG1O-nGmNu2Cl63RvNDmSssQATpbOYn5rXGQ3xVjg/viewform']
   ],
 
+  erp: [
+    ['Litpax ERP','Order to delivery ERP system','https://mis-darpan.github.io/LitpaxERP/index.html','↗'],
+  ],
+
   webForms: [
     ['Field Service Support','Raise technician support tickets and field service requests','https://mis-darpan.github.io/litpax-support-ticket-system/','↗'],
     ['Repair Form','Create and manage repair related requests','https://mis-darpan.github.io/repairformlitpax/','↗'],
