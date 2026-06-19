@@ -55,8 +55,8 @@ const DATA = {
     ['Advance Replacement Response','Response Sheet','https://docs.google.com/spreadsheets/d/18n8V45mXeRUIwCqnFrA_zcFBJ-8xGjDlTDYs_7rj3DY/edit?gid=1602038940#gid=1602038940'],
     ['Interviewer Entry Response','Response Sheet','https://docs.google.com/spreadsheets/d/1a09fcVRyT4vz3QS3O3avWDq_bZ9zXDfPdWyFMFP6kCA/edit?gid=1539020083#gid=1539020083'],
     ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291'],
-    ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245'],
-    ['All Checklists with Points Response','Response Sheet','https://docs.google.com/spreadsheets/d/1NsBV465D1rfK-je-GH7AaEG3HEfNPE7vytHM1YiJK78/edit?gid=309174168#gid=309174168']
+    ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245']
+    
   ],
 
   ims: [
@@ -97,7 +97,8 @@ const DATA = {
     ['Field Service Support Tickets','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
     ['Repair Form Response','Response Sheet','https://docs.google.com/spreadsheets/d/1ythER3lvxeUS-ke6h_KC-1l8855sQQuiiZ4eQ2BzE5M/edit?gid=0#gid=0'],
     ['Service Calls Response','Response Sheet','https://docs.google.com/spreadsheets/d/1POqxaWq3v1nk0mZF0-e7KhKrHbX_AlMWqUewk17tm0s/edit?gid=2116141456#gid=2116141456'],
-    ['Dealership Enquiry Web Form Response','Response Sheet','https://docs.google.com/spreadsheets/d/1y2v5qbvTc7Mnb7lgxRlKYdL8B0t1Mdsaw4j5dTGYGN4/edit?gid=819191422#gid=819191422']
+    ['Dealership Enquiry Web Form Response','Response Sheet','https://docs.google.com/spreadsheets/d/1y2v5qbvTc7Mnb7lgxRlKYdL8B0t1Mdsaw4j5dTGYGN4/edit?gid=819191422#gid=819191422'],
+    ['All Checklists with Points Response','Response Sheet','https://docs.google.com/spreadsheets/d/1NsBV465D1rfK-je-GH7AaEG3HEfNPE7vytHM1YiJK78/edit?gid=309174168#gid=309174168']
   ],
 
   charts: {
