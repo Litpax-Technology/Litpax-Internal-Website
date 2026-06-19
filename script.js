@@ -28,6 +28,7 @@ const DATA = {
     ['Service Calls Form','Manage service requests, complaints and support entries','https://mis-darpan.github.io/ServiceCallsWebForm/','↗'],
     ['Dealership Enquiry Form','Submit dealership and distributor partnership enquiries','https://mis-darpan.github.io/Dealership-Agreement-Web-Form/','↗'],
     ['Scrap Clearance Form','Scrap material clearance and disposal form','https://mis-darpan.github.io/Scrap-Clearance-Form/','↗'],
+    ['Battery Exchange Tracker','Battery exchange records and tracking system','https://mis-darpan.github.io/Battery-Exchange-Tracker/','↗']
   ],
 
   mainSheets: [
