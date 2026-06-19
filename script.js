@@ -55,7 +55,8 @@ const DATA = {
     ['Advance Replacement Response','Response Sheet','https://docs.google.com/spreadsheets/d/18n8V45mXeRUIwCqnFrA_zcFBJ-8xGjDlTDYs_7rj3DY/edit?gid=1602038940#gid=1602038940'],
     ['Interviewer Entry Response','Response Sheet','https://docs.google.com/spreadsheets/d/1a09fcVRyT4vz3QS3O3avWDq_bZ9zXDfPdWyFMFP6kCA/edit?gid=1539020083#gid=1539020083'],
     ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291'],
-    ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245']
+    ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245'],
+    ['All Checklists with Points Response','Response Sheet','https://docs.google.com/spreadsheets/d/1NsBV465D1rfK-je-GH7AaEG3HEfNPE7vytHM1YiJK78/edit?gid=309174168#gid=309174168']
   ],
 
   ims: [
