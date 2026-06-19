@@ -134,7 +134,8 @@ const DATA = {
       ['Most Common Problems Count','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=152787296&format=interactive'],
       ['Daily Received vs Dispatched Batteries','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=50719008&format=interactive'],
       ['Battery Qty and Charger Qty Received','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=1780959702&format=interactive'],
-      ['Daily Battery Type Receiving Summary','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=2091678534&format=interactive']
+      ['Daily Battery Type Receiving Summary','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=2091678534&format=interactive'],
+      ['Scrap Clearance Form Response','Response Sheet','https://docs.google.com/spreadsheets/d/1e9s9n2nMYr1bjN5a8QhMVaiJCU7cqbUJ80o2WIRZskw/edit?gid=416425349#gid=416425349'],
     ]
   }
 };
