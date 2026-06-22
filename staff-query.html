@@ -7,316 +7,266 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f0f2f8;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 24px 16px 48px;
-    }
-    .card {
-      background: #fff;
-      border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(30,27,75,.1);
-      padding: 32px;
-      width: 100%;
-      max-width: 520px;
-      margin-bottom: 20px;
-    }
-    .brand {
-      display: flex; align-items: center; gap: 10px;
-      margin-bottom: 24px; padding-bottom: 20px;
-      border-bottom: 1px solid #e8eaf2;
-    }
-    .brand-logo {
-      width: 36px; height: 36px; background: #4f46e5;
-      border-radius: 9px; color: #fff; font-weight: 800;
-      font-size: 11px; display: flex; align-items: center; justify-content: center;
-    }
+    body { font-family: 'Inter', sans-serif; background: #f0f2f8; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 24px 16px; }
+
+    .screen { display: none; width: 100%; max-width: 520px; }
+    .screen.active { display: block; }
+
+    /* CARD */
+    .card { background: #fff; border-radius: 16px; box-shadow: 0 4px 24px rgba(30,27,75,.1); padding: 32px; margin-bottom: 16px; }
+
+    /* BRAND */
+    .brand { display: flex; align-items: center; gap: 10px; margin-bottom: 24px; padding-bottom: 20px; border-bottom: 1px solid #e8eaf2; }
+    .brand-logo { width: 36px; height: 36px; background: #4f46e5; border-radius: 9px; color: #fff; font-weight: 800; font-size: 11px; display: flex; align-items: center; justify-content: center; }
     .brand h1 { font-size: 15px; font-weight: 700; color: #1e1b4b; }
     .brand p  { font-size: 11px; color: #64748b; margin-top: 1px; }
+
     h2 { font-size: 18px; font-weight: 700; color: #1e1b4b; margin-bottom: 4px; }
     .subtitle { font-size: 12px; color: #64748b; margin-bottom: 22px; }
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* FIELDS */
     .field { margin-bottom: 14px; }
     label { font-size: 11px; font-weight: 600; color: #64748b; display: block; margin-bottom: 5px; }
     input, select, textarea {
-      width: 100%; padding: 9px 12px; border: 1px solid #e2e8f0;
-      border-radius: 8px; font-size: 13px; font-family: inherit;
-      outline: none; background: #f8fafc; color: #1e1b4b; transition: border-color .14s;
+      width: 100%; padding: 9px 12px; border: 1px solid #e2e8f0; border-radius: 8px;
+      font-size: 13px; font-family: inherit; outline: none; background: #f8fafc; color: #1e1b4b; transition: border-color .14s;
     }
-    input:focus, select:focus, textarea:focus {
-      border-color: #4f46e5; background: #fff;
-      box-shadow: 0 0 0 3px rgba(79,70,229,.1);
-    }
-    textarea { resize: vertical; min-height: 100px; }
+    input:focus, select:focus, textarea:focus { border-color: #4f46e5; background: #fff; box-shadow: 0 0 0 3px rgba(79,70,229,.1); }
+    textarea { resize: vertical; min-height: 90px; }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    /* PRIORITY */
     .priority-row { display: flex; gap: 8px; flex-wrap: wrap; }
-    .priority-label {
-      display: flex; align-items: center; gap: 6px; cursor: pointer;
-      font-size: 12px; font-weight: 500; padding: 7px 14px;
-      border: 1px solid #e2e8f0; border-radius: 8px;
-      background: #f8fafc; color: #334155; transition: .14s;
-    }
+    .priority-label { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 12px; font-weight: 500; padding: 7px 14px; border: 1px solid #e2e8f0; border-radius: 8px; background: #f8fafc; color: #334155; transition: .14s; }
     .priority-label input { width: auto; padding: 0; background: none; border: none; box-shadow: none; }
     .priority-label:has(input:checked) { border-color: #4f46e5; background: #eef2ff; color: #4338ca; font-weight: 600; }
     .priority-label.urgent:has(input:checked) { border-color: #dc2626; background: #fef2f2; color: #dc2626; }
-    .submit-btn {
-      width: 100%; padding: 12px; background: #4f46e5; color: #fff;
-      border: none; border-radius: 8px; font-size: 14px; font-weight: 600;
-      font-family: inherit; cursor: pointer; margin-top: 6px; transition: background .14s;
-    }
-    .submit-btn:hover { background: #4338ca; }
-    .submit-btn:disabled { background: #a5b4fc; cursor: not-allowed; }
-    #msgBox {
-      margin-top: 14px; font-size: 13px; font-weight: 500;
-      text-align: center; padding: 10px; border-radius: 8px; display: none;
-    }
-    #msgBox.success { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; display: block; }
-    #msgBox.error   { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; display: block; }
 
-    /* My Queries Section */
-    .my-queries-card {
-      background: #fff; border-radius: 16px;
-      box-shadow: 0 4px 24px rgba(30,27,75,.1);
-      width: 100%; max-width: 520px; overflow: hidden;
-    }
-    .mq-header {
-      padding: 20px 24px 16px;
-      border-bottom: 1px solid #e8eaf2;
-    }
-    .mq-header h3 { font-size: 15px; font-weight: 700; color: #1e1b4b; margin-bottom: 2px; }
-    .mq-header p  { font-size: 11px; color: #64748b; }
-    .mq-search {
-      padding: 14px 16px;
-      border-bottom: 1px solid #e8eaf2;
-      display: flex; gap: 8px;
-    }
-    .mq-search input {
-      flex: 1; padding: 8px 12px; border: 1px solid #e2e8f0;
-      border-radius: 8px; font-size: 13px; font-family: inherit; outline: none; background: #f8fafc;
-    }
-    .mq-search input:focus { border-color: #4f46e5; background: #fff; }
-    .mq-search button {
-      padding: 8px 16px; background: #4f46e5; color: #fff;
-      border: none; border-radius: 8px; font-size: 12px;
-      font-weight: 600; font-family: inherit; cursor: pointer;
-    }
-    .mq-search button:hover { background: #4338ca; }
-    #mqList { padding: 12px 16px; }
+    /* BUTTONS */
+    .btn { width: 100%; padding: 12px; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background .14s; }
+    .btn-primary { background: #4f46e5; color: #fff; }
+    .btn-primary:hover { background: #4338ca; }
+    .btn-primary:disabled { background: #a5b4fc; cursor: not-allowed; }
+    .btn-outline { background: #fff; color: #4f46e5; border: 1px solid #c7d2fe; margin-top: 8px; }
+    .btn-outline:hover { background: #eef2ff; }
 
-    .ticket-item {
-      border: 1px solid #e8eaf2; border-radius: 12px;
-      margin-bottom: 10px; overflow: hidden;
-    }
-    .ticket-top {
-      padding: 12px 14px; cursor: pointer;
-      display: flex; align-items: center; justify-content: space-between; gap: 10px;
-      transition: background .14s;
-    }
+    /* ALERT */
+    .alert { margin-top: 12px; font-size: 13px; font-weight: 500; text-align: center; padding: 10px; border-radius: 8px; display: none; }
+    .alert.success { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; display: block; }
+    .alert.error   { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; display: block; }
+
+    /* DASHBOARD */
+    .dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; }
+    .dash-header h2 { margin-bottom: 0; }
+    .user-pill { display: flex; align-items: center; gap: 8px; background: #eef2ff; border: 1px solid #c7d2fe; border-radius: 999px; padding: 5px 12px 5px 6px; }
+    .user-avatar { width: 26px; height: 26px; background: #4f46e5; border-radius: 50%; color: #fff; font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; }
+    .user-name { font-size: 12px; font-weight: 600; color: #3730a3; }
+    .logout-btn { font-size: 11px; color: #94a3b8; background: none; border: none; cursor: pointer; margin-left: 4px; font-family: inherit; }
+    .logout-btn:hover { color: #dc2626; }
+
+    .new-query-btn { width: 100%; padding: 10px; background: #4f46e5; color: #fff; border: none; border-radius: 10px; font-size: 13px; font-weight: 600; font-family: inherit; cursor: pointer; margin-bottom: 14px; transition: background .14s; display: flex; align-items: center; justify-content: center; gap: 6px; }
+    .new-query-btn:hover { background: #4338ca; }
+
+    /* TICKET LIST */
+    .ticket-item { border: 1px solid #e8eaf2; border-radius: 12px; margin-bottom: 10px; overflow: hidden; }
+    .ticket-top { padding: 12px 14px; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 10px; transition: background .14s; }
     .ticket-top:hover { background: #f8fafc; }
     .ticket-subject { font-size: 13px; font-weight: 600; color: #1e1b4b; }
     .ticket-meta { font-size: 11px; color: #64748b; margin-top: 2px; }
-    .status-badge {
-      font-size: 10px; font-weight: 700; padding: 3px 10px;
-      border-radius: 999px; white-space: nowrap; flex-shrink: 0;
-    }
+    .status-badge { font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 999px; white-space: nowrap; flex-shrink: 0; }
     .status-Open        { background: #fef2f2; color: #dc2626; border: 1px solid #fecaca; }
     .status-In-Progress { background: #fffbeb; color: #d97706; border: 1px solid #fde68a; }
     .status-Closed      { background: #f0fdf4; color: #16a34a; border: 1px solid #bbf7d0; }
 
-    .ticket-chat { display: none; padding: 12px 14px; border-top: 1px solid #e8eaf2; background: #fafafa; }
+    /* CHAT */
+    .ticket-chat { display: none; padding: 14px; border-top: 1px solid #e8eaf2; background: #fafafa; }
     .ticket-chat.open { display: block; }
-
-    .bubble-wrap { display: flex; flex-direction: column; gap: 8px; }
-    .bubble {
-      display: flex; flex-direction: column;
-    }
+    .bubble-wrap { display: flex; flex-direction: column; gap: 10px; }
+    .bubble { display: flex; flex-direction: column; }
     .bubble.employee { align-items: flex-start; }
-    .bubble.owner    { align-items: flex-end; }
+    .bubble.owner, .bubble.owner-temp { align-items: flex-end; }
     .bubble-name { font-size: 10px; color: #94a3b8; margin-bottom: 3px; }
-    .bubble-text {
-      max-width: 85%; padding: 9px 13px; font-size: 12.5px;
-      line-height: 1.55; font-weight: 500;
-    }
-    .bubble.employee .bubble-text {
-      background: #eef2ff; color: #3730a3;
-      border-radius: 12px 12px 12px 4px;
-    }
-    .bubble.owner .bubble-text {
-      background: #f0fdf4; color: #15803d;
-      border-radius: 12px 12px 4px 12px;
-    }
-    .bubble.owner-temp .bubble-text {
-      background: #fffbeb; color: #92400e;
-      border-radius: 12px 12px 4px 12px;
-    }
+    .bubble-text { max-width: 85%; padding: 9px 13px; font-size: 12.5px; line-height: 1.55; font-weight: 500; }
+    .bubble.employee .bubble-text { background: #eef2ff; color: #3730a3; border-radius: 12px 12px 12px 4px; }
+    .bubble.owner-temp .bubble-text { background: #fffbeb; color: #92400e; border-radius: 12px 12px 4px 12px; }
+    .bubble.owner .bubble-text { background: #f0fdf4; color: #15803d; border-radius: 12px 12px 4px 12px; }
     .bubble-time { font-size: 10px; color: #cbd5e1; margin-top: 3px; }
+    .pending-msg { text-align: center; font-size: 11px; color: #94a3b8; padding: 8px; }
 
-    .empty-mq {
-      text-align: center; padding: 24px;
-      font-size: 12px; color: #94a3b8;
-    }
+    .empty-state { text-align: center; padding: 32px; color: #94a3b8; font-size: 13px; }
 
     @media (max-width: 480px) {
       .row { grid-template-columns: 1fr; }
       .card { padding: 20px; }
-      .mq-header { padding: 16px; }
     }
   </style>
 </head>
 <body>
 
-<!-- SUBMIT FORM -->
-<div class="card">
-  <div class="brand">
-    <div class="brand-logo">LT</div>
-    <div>
-      <h1>Litpax Technology</h1>
-      <p>Internal Staff Query System</p>
+<!-- LOGIN SCREEN -->
+<div class="screen active" id="loginScreen">
+  <div class="card">
+    <div class="brand">
+      <div class="brand-logo">LT</div>
+      <div>
+        <h1>Litpax Technology</h1>
+        <p>Staff Query System</p>
+      </div>
     </div>
-  </div>
-
-  <h2>Submit a Query</h2>
-  <p class="subtitle">Apni query ya urgent decision yahan submit karo — owner ko turant notify hoga.</p>
-
-  <div class="row">
+    <h2>Login</h2>
+    <p class="subtitle">Apna Employee ID enter karo</p>
     <div class="field">
-      <label>Employee Name *</label>
-      <input type="text" id="qName" placeholder="Apna naam likhein">
+      <label>Employee ID *</label>
+      <input type="text" id="loginEmpID" placeholder="Emp ID likhein" onkeydown="if(event.key==='Enter') doLogin()">
     </div>
-    <div class="field">
-      <label>Department *</label>
-      <select id="qDept">
-        <option value="">Select</option>
-        <option>Store</option>
-        <option>Production</option>
-        <option>Dispatch</option>
-        <option>Sales</option>
-        <option>Repair</option>
-        <option>Accounts</option>
-        <option>Other</option>
-      </select>
-    </div>
+    <button class="btn btn-primary" id="loginBtn" onclick="doLogin()">Login</button>
+    <div class="alert" id="loginMsg"></div>
   </div>
-
-  <div class="field">
-    <label>Priority *</label>
-    <div class="priority-row">
-      <label class="priority-label"><input type="radio" name="priority" value="Low"> Low</label>
-      <label class="priority-label"><input type="radio" name="priority" value="Medium" checked> Medium</label>
-      <label class="priority-label urgent"><input type="radio" name="priority" value="Urgent"> 🔴 Urgent</label>
-    </div>
-  </div>
-
-  <div class="field">
-    <label>Subject *</label>
-    <input type="text" id="qSubject" placeholder="Query ka short title">
-  </div>
-
-  <div class="field">
-    <label>Description *</label>
-    <textarea id="qDesc" placeholder="Poori detail likhein — kya chahiye, kab chahiye, kya problem hai..."></textarea>
-  </div>
-
-  <button class="submit-btn" id="submitBtn" onclick="submitQuery()">Submit Query</button>
-  <div id="msgBox"></div>
 </div>
 
-<!-- MY QUERIES -->
-<div class="my-queries-card">
-  <div class="mq-header">
-    <h3>My Queries</h3>
-    <p>Apna naam dal ke apni queries aur owner ka response dekho</p>
+<!-- DASHBOARD SCREEN -->
+<div class="screen" id="dashScreen">
+  <div class="card">
+    <div class="dash-header">
+      <div>
+        <h2 id="dashTitle">My Queries</h2>
+        <p style="font-size:11px;color:#64748b;margin-top:2px;" id="dashSub"></p>
+      </div>
+      <div class="user-pill">
+        <div class="user-avatar" id="userAvatar"></div>
+        <span class="user-name" id="userName"></span>
+        <button class="logout-btn" onclick="logout()">Logout</button>
+      </div>
+    </div>
+
+    <button class="new-query-btn" onclick="showNewQuery()">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      New Query
+    </button>
+
+    <div id="ticketsList"><div class="empty-state">Loading...</div></div>
   </div>
-  <div class="mq-search">
-    <input type="text" id="mqName" placeholder="Apna naam likhein..." onkeydown="if(event.key==='Enter') loadMyTickets()">
-    <button onclick="loadMyTickets()">Load</button>
+</div>
+
+<!-- NEW QUERY SCREEN -->
+<div class="screen" id="newQueryScreen">
+  <div class="card">
+    <div class="brand">
+      <div class="brand-logo">LT</div>
+      <div>
+        <h1>New Query</h1>
+        <p id="newQueryUser"></p>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Priority *</label>
+      <div class="priority-row">
+        <label class="priority-label"><input type="radio" name="priority" value="Low"> Low</label>
+        <label class="priority-label"><input type="radio" name="priority" value="Medium" checked> Medium</label>
+        <label class="priority-label urgent"><input type="radio" name="priority" value="Urgent"> 🔴 Urgent</label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Subject *</label>
+      <input type="text" id="qSubject" placeholder="Query ka short title">
+    </div>
+
+    <div class="field">
+      <label>Description *</label>
+      <textarea id="qDesc" placeholder="Poori detail likhein..."></textarea>
+    </div>
+
+    <button class="btn btn-primary" id="submitBtn" onclick="submitQuery()">Submit Query</button>
+    <button class="btn btn-outline" onclick="showDash()">← Back</button>
+    <div class="alert" id="submitMsg"></div>
   </div>
-  <div id="mqList"><div class="empty-mq">Naam dal ke Load karo</div></div>
 </div>
 
 <script>
-const GAS_QUERY_URL = 'https://script.google.com/macros/s/AKfycbxjbAFoTANTet3z2wgFFi0Obm9IjSH767jgnNcikxOytywSN1qxITZseWEykgI-8CS8/exec';
+const GAS_QUERY_URL = 'https://script.google.com/macros/s/AKfycbxI5AttbVyC0XeUnWIo3t9hfN9limnPbpQJQyuJEsAyRVFyOv10gxcsz3K_SqTo-pyO/exec';
 
-async function submitQuery() {
-  const name     = document.getElementById('qName').value.trim();
-  const dept     = document.getElementById('qDept').value;
-  const priority = document.querySelector('input[name="priority"]:checked')?.value;
-  const subject  = document.getElementById('qSubject').value.trim();
-  const desc     = document.getElementById('qDesc').value.trim();
-  const btn      = document.getElementById('submitBtn');
-  const msg      = document.getElementById('msgBox');
+let currentUser = null;
 
-  msg.className = '';
-  msg.style.display = 'none';
+// ── SCREENS ──
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function showDash() { showScreen('dashScreen'); loadMyTickets(); }
+function showNewQuery() {
+  document.getElementById('newQueryUser').textContent = currentUser?.name || '';
+  document.getElementById('qSubject').value = '';
+  document.getElementById('qDesc').value = '';
+  document.getElementById('submitMsg').className = 'alert';
+  showScreen('newQueryScreen');
+}
 
-  if (!name || !dept || !subject || !desc) {
-    msg.className = 'error';
-    msg.textContent = '⚠️ Sab fields fill karna zaroori hai.';
-    return;
-  }
+// ── LOGIN ──
+async function doLogin() {
+  const empID = document.getElementById('loginEmpID').value.trim();
+  const msg   = document.getElementById('loginMsg');
+  const btn   = document.getElementById('loginBtn');
+  if (!empID) { showAlert(msg, 'error', '⚠️ Emp ID likhein'); return; }
 
-  btn.textContent = 'Submitting...';
+  btn.textContent = 'Logging in...';
   btn.disabled = true;
 
   try {
-    const res = await fetch(GAS_QUERY_URL, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'submitQuery', employeeName: name, department: dept, priority, subject, description: desc })
-    });
+    const res  = await fetch(GAS_QUERY_URL, { method: 'POST', body: JSON.stringify({ action: 'login', empID }) });
     const data = await res.json();
     if (data.success) {
-      msg.className = 'success';
-      msg.textContent = `✅ Query submit ho gayi! Ticket ID: ${data.ticketID}`;
-      // Auto load tickets for this name
-      document.getElementById('mqName').value = name;
-      document.getElementById('qName').value = '';
-      document.getElementById('qDept').value = '';
-      document.getElementById('qSubject').value = '';
-      document.getElementById('qDesc').value = '';
-      loadMyTickets();
+      currentUser = { empID: data.empID, name: data.name };
+      localStorage.setItem('ltxUser', JSON.stringify(currentUser));
+      setupDash();
+      showDash();
     } else {
-      msg.className = 'error';
-      msg.textContent = '❌ Error aaya. Dobara try karo.';
+      showAlert(msg, 'error', '❌ ' + (data.message || 'Emp ID galat hai'));
     }
   } catch(err) {
-    msg.className = 'error';
-    msg.textContent = '❌ Network error. Baad mein try karo.';
+    showAlert(msg, 'error', '❌ Network error');
   }
 
-  btn.textContent = 'Submit Query';
+  btn.textContent = 'Login';
   btn.disabled = false;
 }
 
-async function loadMyTickets() {
-  const name = document.getElementById('mqName').value.trim();
-  if (!name) return;
-  localStorage.setItem('mqName', name);
-  document.getElementById('mqList').innerHTML = '<div class="empty-mq">Loading...</div>';
+function setupDash() {
+  const initials = currentUser.name.split(' ').map(w => w[0]).join('').toUpperCase().slice(0,2);
+  document.getElementById('userAvatar').textContent = initials;
+  document.getElementById('userName').textContent = currentUser.name;
+  document.getElementById('dashSub').textContent = 'Emp ID: ' + currentUser.empID;
+}
 
+function logout() {
+  currentUser = null;
+  localStorage.removeItem('ltxUser');
+  document.getElementById('loginEmpID').value = '';
+  document.getElementById('loginMsg').className = 'alert';
+  showScreen('loginScreen');
+}
+
+// ── LOAD TICKETS ──
+async function loadMyTickets() {
+  document.getElementById('ticketsList').innerHTML = '<div class="empty-state">Loading...</div>';
   try {
-    const res = await fetch(GAS_QUERY_URL, {
-      method: 'POST',
-      body: JSON.stringify({ action: 'getMyTickets', employeeName: name })
-    });
+    const res  = await fetch(GAS_QUERY_URL, { method: 'POST', body: JSON.stringify({ action: 'getMyTickets', empID: currentUser.empID }) });
     const data = await res.json();
     if (!data.success || !data.tickets.length) {
-      document.getElementById('mqList').innerHTML = '<div class="empty-mq">Koi query nahi mili — naam check karo.</div>';
+      document.getElementById('ticketsList').innerHTML = '<div class="empty-state">Abhi koi query nahi — "New Query" se submit karo</div>';
       return;
     }
-    document.getElementById('mqList').innerHTML = data.tickets.reverse().map((t, i) => {
-      const statusClass = 'status-' + t.Status.replace(' ', '-');
-      const hasResponse = t['Temp Response'] || t['Final Response'];
+    document.getElementById('ticketsList').innerHTML = data.tickets.reverse().map((t, i) => {
+      const sc = 'status-' + t.Status.replace(' ', '-');
       return `
         <div class="ticket-item">
           <div class="ticket-top" onclick="toggleChat(${i})">
             <div>
               <div class="ticket-subject">${t.Subject}</div>
-              <div class="ticket-meta">${t.TicketID} · ${t.Department} · ${t.Timestamp}</div>
+              <div class="ticket-meta">${t.TicketID} · ${t.Priority} · ${t.Timestamp}</div>
             </div>
-            <span class="status-badge ${statusClass}">${t.Status}</span>
+            <span class="status-badge ${sc}">${t.Status}</span>
           </div>
           <div class="ticket-chat" id="chat-${i}">
             <div class="bubble-wrap">
@@ -324,42 +274,73 @@ async function loadMyTickets() {
                 <div class="bubble-name">${t['Employee Name']}</div>
                 <div class="bubble-text">${t.Description}</div>
               </div>
-              ${t['Temp Response'] ? `
-              <div class="bubble owner-temp">
-                <div class="bubble-name">Owner</div>
-                <div class="bubble-text">${t['Temp Response']}</div>
-              </div>` : ''}
-              ${t['Final Response'] ? `
-              <div class="bubble owner">
-                <div class="bubble-name">Owner (Final Solution ✓)</div>
-                <div class="bubble-text">${t['Final Response']}</div>
-                ${t['Closed Date'] ? `<div class="bubble-time">Closed: ${t['Closed Date']}</div>` : ''}
-              </div>` : ''}
-              ${!hasResponse ? `<div style="text-align:center;font-size:11px;color:#94a3b8;padding:8px;">Owner ka response abhi pending hai...</div>` : ''}
+              ${t['Temp Response'] ? `<div class="bubble owner-temp"><div class="bubble-name">Owner</div><div class="bubble-text">${t['Temp Response']}</div></div>` : ''}
+              ${t['Final Response'] ? `<div class="bubble owner"><div class="bubble-name">Owner (Final ✓)</div><div class="bubble-text">${t['Final Response']}</div>${t['Closed Date']?`<div class="bubble-time">Closed: ${t['Closed Date']}</div>`:''}</div>` : ''}
+              ${!t['Temp Response'] && !t['Final Response'] ? `<div class="pending-msg">⏳ Owner ka response pending hai...</div>` : ''}
             </div>
           </div>
-        </div>
-      `;
+        </div>`;
     }).join('');
   } catch(err) {
-    document.getElementById('mqList').innerHTML = '<div class="empty-mq" style="color:#dc2626;">Error loading. Dobara try karo.</div>';
+    document.getElementById('ticketsList').innerHTML = '<div class="empty-state" style="color:#dc2626">Error loading. Refresh karo.</div>';
   }
 }
 
 function toggleChat(i) {
-  const el = document.getElementById('chat-' + i);
-  el.classList.toggle('open');
+  document.getElementById('chat-' + i).classList.toggle('open');
 }
 
-// Auto load if name saved
+// ── SUBMIT QUERY ──
+async function submitQuery() {
+  const priority = document.querySelector('input[name="priority"]:checked')?.value;
+  const subject  = document.getElementById('qSubject').value.trim();
+  const desc     = document.getElementById('qDesc').value.trim();
+  const msg      = document.getElementById('submitMsg');
+  const btn      = document.getElementById('submitBtn');
+
+  if (!subject || !desc) { showAlert(msg, 'error', '⚠️ Sab fields fill karo'); return; }
+
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  try {
+    const res  = await fetch(GAS_QUERY_URL, { method: 'POST', body: JSON.stringify({
+      action: 'submitQuery', empID: currentUser.empID,
+      employeeName: currentUser.name, department: '',
+      priority, subject, description: desc
+    })});
+    const data = await res.json();
+    if (data.success) {
+      showAlert(msg, 'success', `✅ Query submit ho gayi! ID: ${data.ticketID}`);
+      setTimeout(() => showDash(), 1500);
+    } else {
+      showAlert(msg, 'error', '❌ Error aaya. Dobara try karo.');
+    }
+  } catch(err) {
+    showAlert(msg, 'error', '❌ Network error.');
+  }
+
+  btn.textContent = 'Submit Query';
+  btn.disabled = false;
+}
+
+// ── UTILS ──
+function showAlert(el, type, text) {
+  el.className = 'alert ' + type;
+  el.textContent = text;
+}
+
+// ── AUTO LOGIN ──
 window.addEventListener('DOMContentLoaded', () => {
-  const saved = localStorage.getItem('mqName');
+  const saved = localStorage.getItem('ltxUser');
   if (saved) {
-    document.getElementById('mqName').value = saved;
-    loadMyTickets();
+    try {
+      currentUser = JSON.parse(saved);
+      setupDash();
+      showDash();
+    } catch(e) { localStorage.removeItem('ltxUser'); }
   }
 });
 </script>
-
 </body>
 </html>
