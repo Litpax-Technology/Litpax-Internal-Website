@@ -152,7 +152,8 @@ const TITLES = {
   repair:    'Repair & Services',
   responses: 'Response Sheets',
   dashboard: 'Dashboards',
-  admin:     'Admin Tools'
+  admin:     'Admin Tools',
+  queries:   'Staff Queries'
 };
 
 function setHTML(id, html){
