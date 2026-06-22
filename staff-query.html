@@ -208,7 +208,7 @@ async function submitQuery() {
   btn.disabled = true;
 
   try {
-    const res = await fetch(GAS_URL, {
+    const res = await fetch(GAS_QUERY_URL, {
       method: 'POST',
       body: JSON.stringify({ action: 'submitQuery', employeeName: name, department: dept, priority, subject, description: desc })
     });
