@@ -348,7 +348,7 @@ function renderQuerySection() {
         </div>
         <div id="chatBody" style="flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;"></div>
         <div id="chatFooter" style="border-top:1px solid var(--line);padding:12px;display:none;">
-          <textarea id="ownerReply" rows="2" placeholder="Response likho..." style="width:100%;padding:8px 12px;border:1px solid var(--line2);border-radius:8px;font-size:13px;font-family:inherit;outline:none;resize:none;background:var(--bg);"></textarea>
+          <textarea id="ownerReply" rows="2" onkeydown="handleReplyKey(event)" placeholder="Response likho... (Shift+Enter = New Line)" style="width:100%;padding:8px 12px;border:1px solid var(--line2);border-radius:8px;font-size:13px;font-family:inherit;outline:none;resize:none;background:var(--bg);"></textarea>
           <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;">
             <button onclick="sendResponse('temp')" style="background:#d97706;color:#fff;border:none;padding:7px 14px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;">Send Temp Response</button>
             <button onclick="sendResponse('final')" style="background:#16a34a;color:#fff;border:none;padding:7px 14px;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:inherit;">✓ Final Solution & Close</button>
@@ -505,5 +505,12 @@ async function changeStatus(status) {
     openTicket(activeTicket);
   } catch(err) {
     alert('Error updating status.');
+  }
+}
+
+function handleReplyKey(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    sendResponse('temp');
   }
 }
