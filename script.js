@@ -1,3 +1,5 @@
+const GAS_QUERY_URL = 'https://script.google.com/macros/s/AKfycbwYJIxqDn7e6ejyQ1jGXSYb_hgTLGZFmoLsgzw4deI7u7Ow34GI6gxxJJlrNw8iruAg/exec';
+
 const DATA = {
   forms: [
     ['Dealership Enquiry','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSe9OFM7h6x_Vz8pjnAP_JIpkNeKvZjh95CAxe0sNsyhpXgCpA/viewform'],
@@ -57,7 +59,6 @@ const DATA = {
     ['Interviewer Entry Response','Response Sheet','https://docs.google.com/spreadsheets/d/1a09fcVRyT4vz3QS3O3avWDq_bZ9zXDfPdWyFMFP6kCA/edit?gid=1539020083#gid=1539020083'],
     ['Employee Advance Request Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1Py93T5z1yI1qN0a_49_P1ZGBQyJxNovZdxPG8B5gvUs/edit?gid=1195204291#gid=1195204291'],
     ['Material Gatepass Responses','Response Sheet','https://docs.google.com/spreadsheets/d/1rS9YJdeuMUjC80SOm0WKlI47jBohqmK8gt9QukrVv50/edit?gid=1932924245#gid=1932924245']
-    
   ],
 
   ims: [
@@ -91,7 +92,6 @@ const DATA = {
 
   repairResponses: [
     ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0']
-    
   ],
 
   webFormResponses: [
@@ -227,16 +227,14 @@ function render(){
   setHTML('checklistGrid',   DATA.checklist.map(featureCard).join(''));
   setHTML('fmsGrid',         DATA.fms.map(featureCard).join(''));
   setHTML('erpGrid',         DATA.erp.map(featureCard).join(''));
-
-  // Repair & Services
   setHTML('repairFormsGrid',     DATA.repairForms.map(featureCard).join(''));
   setHTML('repairSheetsGrid',    DATA.repairSheets.map(toolCard).join(''));
   setHTML('repairResponsesGrid', DATA.repairResponses.map(toolCard).join(''));
-
-  // Charts
   setHTML('paymentsCharts', paymentsGroupedHTML());
   setHTML('courierCharts',  `<div class="chart-grid">${DATA.charts.courier.map(chartCard).join('')}</div>`);
   setHTML('repairCharts',   `<div class="chart-grid">${DATA.charts.repair.map(chartCard).join('')}</div>`);
+
+  renderQuerySection();
 }
 
 function showSection(name){
@@ -314,3 +312,151 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('menuBtn')?.addEventListener('click', toggleSidebar);
   document.getElementById('overlay')?.addEventListener('click', closeSidebar);
 });
+
+// ─── STAFF QUERIES ───────────────────────────────
+
+function renderQuerySection() {
+  const wrap = document.getElementById('queryFormWrap');
+  if (!wrap) return;
+  wrap.innerHTML = `
+    <div style="background:var(--bg);border:1px solid var(--line);border-radius:var(--r-xl);padding:20px;max-width:600px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
+        <div>
+          <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;">Employee Name *</label>
+          <input id="qName" type="text" placeholder="Apna naam likhein" style="width:100%;padding:9px 12px;border:1px solid var(--line2);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;background:var(--card);">
+        </div>
+        <div>
+          <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;">Department *</label>
+          <select id="qDept" style="width:100%;padding:9px 12px;border:1px solid var(--line2);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;background:var(--card);">
+            <option value="">Select Department</option>
+            <option>Store</option>
+            <option>Production</option>
+            <option>Dispatch</option>
+            <option>Sales</option>
+            <option>Repair</option>
+            <option>Accounts</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;">Priority *</label>
+        <div style="display:flex;gap:8px;">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;padding:7px 14px;border:1px solid var(--line2);border-radius:var(--r-md);background:var(--card);">
+            <input type="radio" name="qPriority" value="Low"> Low
+          </label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;padding:7px 14px;border:1px solid var(--line2);border-radius:var(--r-md);background:var(--card);">
+            <input type="radio" name="qPriority" value="Medium" checked> Medium
+          </label>
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:12px;padding:7px 14px;border:1px solid var(--line2);border-radius:var(--r-md);background:var(--card);color:#dc2626;border-color:#fecaca;">
+            <input type="radio" name="qPriority" value="Urgent"> 🔴 Urgent
+          </label>
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;">Subject *</label>
+        <input id="qSubject" type="text" placeholder="Query ka short title" style="width:100%;padding:9px 12px;border:1px solid var(--line2);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;background:var(--card);">
+      </div>
+      <div style="margin-bottom:16px;">
+        <label style="font-size:11px;font-weight:600;color:var(--muted);display:block;margin-bottom:5px;">Description *</label>
+        <textarea id="qDesc" rows="4" placeholder="Poori detail likhein..." style="width:100%;padding:9px 12px;border:1px solid var(--line2);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;background:var(--card);resize:vertical;"></textarea>
+      </div>
+      <button onclick="submitQuery()" id="qSubmitBtn" style="background:var(--acc);color:#fff;border:none;padding:10px 24px;border-radius:var(--r-md);font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">
+        Submit Query
+      </button>
+      <div id="qMsg" style="margin-top:12px;font-size:12.5px;font-weight:500;"></div>
+    </div>
+  `;
+  renderMyTickets();
+}
+
+function renderMyTickets() {
+  const wrap = document.getElementById('queryListWrap');
+  if (!wrap) return;
+  const savedName = localStorage.getItem('qEmployeeName') || '';
+  wrap.innerHTML = `
+    <div style="display:flex;gap:8px;align-items:center;margin-bottom:14px;max-width:400px;">
+      <input id="qNameFilter" type="text" value="${savedName}" placeholder="Apna naam likhein aur tickets dekho" style="flex:1;padding:9px 12px;border:1px solid var(--line2);border-radius:var(--r-md);font-size:13px;font-family:inherit;outline:none;background:var(--card);">
+      <button onclick="loadMyTickets()" style="background:var(--acc);color:#fff;border:none;padding:9px 16px;border-radius:var(--r-md);font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;">Load</button>
+    </div>
+    <div id="ticketsList"></div>
+  `;
+  if (savedName) loadMyTickets();
+}
+
+async function loadMyTickets() {
+  const name = document.getElementById('qNameFilter')?.value.trim();
+  if (!name) return;
+  localStorage.setItem('qEmployeeName', name);
+  document.getElementById('ticketsList').innerHTML = '<p style="font-size:12px;color:var(--muted);">Loading...</p>';
+  try {
+    const res = await fetch(GAS_QUERY_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'getMyTickets', employeeName: name })
+    });
+    const data = await res.json();
+    if (!data.success || data.tickets.length === 0) {
+      document.getElementById('ticketsList').innerHTML = '<div class="empty-state"><h3>Koi ticket nahi mila</h3><p>Naam check karo ya pehle query submit karo.</p></div>';
+      return;
+    }
+    const statusColor = s => s==='Open'?'#dc2626':s==='In Progress'?'#d97706':'#16a34a';
+    document.getElementById('ticketsList').innerHTML = data.tickets.reverse().map(t => `
+      <div style="border:1px solid var(--line);border-radius:var(--r-xl);padding:16px;margin-bottom:10px;background:var(--card);">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;">
+          <span style="font-size:11px;font-weight:700;color:var(--acc);">${t.TicketID}</span>
+          <span style="font-size:10px;font-weight:700;padding:3px 10px;border-radius:999px;background:${statusColor(t.Status)}22;color:${statusColor(t.Status)};border:1px solid ${statusColor(t.Status)}44;">${t.Status}</span>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:var(--tx);margin-bottom:4px;">${t.Subject}</div>
+        <div style="font-size:11px;color:var(--muted);margin-bottom:4px;">${t.Timestamp} · ${t.Department} · ${t.Priority}</div>
+        ${t['Temp Response'] ? `<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:var(--r-md);padding:10px 12px;font-size:12px;color:#92400e;margin-top:8px;"><strong>Owner Response:</strong> ${t['Temp Response']}</div>` : ''}
+        ${t['Final Response'] ? `<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:var(--r-md);padding:10px 12px;font-size:12px;color:#15803d;margin-top:6px;"><strong>Final Solution:</strong> ${t['Final Response']}</div>` : ''}
+      </div>
+    `).join('');
+  } catch(err) {
+    document.getElementById('ticketsList').innerHTML = '<p style="color:red;font-size:12px;">Error loading tickets.</p>';
+  }
+}
+
+async function submitQuery() {
+  const name = document.getElementById('qName').value.trim();
+  const dept = document.getElementById('qDept').value;
+  const priority = document.querySelector('input[name="qPriority"]:checked')?.value;
+  const subject = document.getElementById('qSubject').value.trim();
+  const desc = document.getElementById('qDesc').value.trim();
+  const msg = document.getElementById('qMsg');
+  const btn = document.getElementById('qSubmitBtn');
+
+  if (!name || !dept || !subject || !desc) {
+    msg.style.color = '#dc2626';
+    msg.textContent = '⚠️ Sab fields fill karo.';
+    return;
+  }
+
+  btn.textContent = 'Submitting...';
+  btn.disabled = true;
+
+  try {
+    const res = await fetch(GAS_QUERY_URL, {
+      method: 'POST',
+      body: JSON.stringify({ action: 'submitQuery', employeeName: name, department: dept, priority, subject, description: desc })
+    });
+    const data = await res.json();
+    if (data.success) {
+      msg.style.color = '#16a34a';
+      msg.textContent = `✅ Query submit ho gayi! Ticket ID: ${data.ticketID}`;
+      document.getElementById('qName').value = '';
+      document.getElementById('qDept').value = '';
+      document.getElementById('qSubject').value = '';
+      document.getElementById('qDesc').value = '';
+    } else {
+      msg.style.color = '#dc2626';
+      msg.textContent = '❌ Error aaya. Dobara try karo.';
+    }
+  } catch(err) {
+    msg.style.color = '#dc2626';
+    msg.textContent = '❌ Network error. GAS URL check karo.';
+  }
+
+  btn.textContent = 'Submit Query';
+  btn.disabled = false;
+}
