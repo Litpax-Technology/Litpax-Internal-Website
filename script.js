@@ -412,7 +412,7 @@ function filterTickets() {
         <span style="width:7px;height:7px;border-radius:50%;background:${priorityDot(t.Priority)};flex-shrink:0;"></span>
         <span style="font-size:11px;font-weight:700;color:var(--tx);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.Subject}</span>
       </div>
-      <div style="font-size:10px;color:var(--muted);">${t['Employee Name']} · ${t.Department}</div>
+      <div style="font-size:10px;color:var(--muted);">${t['Employee Name']} · ${t.Department}${t['Request To'] ? ' → ' + t['Request To'] : ''}</div>
       <div style="margin-top:5px;">
         <span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:999px;background:${statusBg(t.Status)};color:${statusColor(t.Status)};">${t.Status}</span>
         <span style="font-size:9px;color:var(--soft);margin-left:6px;">${t.TicketID}</span>
@@ -437,7 +437,7 @@ function openTicket(ticketID) {
     <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;">
       <div>
         <div style="font-size:13px;font-weight:700;color:var(--tx);">${t.Subject}</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${t['Employee Name']} · ${t.Department} · ${t.Priority} · ${t.Timestamp}</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:2px;">${t['Employee Name']} · ${t.Department} · ${t.Priority} · ${t['Request To'] ? '→ ' + t['Request To'] : ''} · ${t.Timestamp}</div>
       </div>
       <span style="font-size:10px;font-weight:700;padding:4px 10px;border-radius:999px;background:${statusColor(t.Status)}22;color:${statusColor(t.Status)};border:1px solid ${statusColor(t.Status)}44;white-space:nowrap;">${t.Status}</span>
     </div>
