@@ -110,7 +110,8 @@ const DATA = {
   ],
 
     departmentsHub: [
-    ['Litpax Departments Hub','Department-wise employee portal — forms, notices and resources','https://mis-darpan.github.io/Litpax-Departments-Hub/','🏢']
+    ['Litpax Departments Hub','Department-wise employee portal — forms, notices and resources','https://mis-darpan.github.io/Litpax-Departments-Hub/','🏢'],
+    ['Departments Hub Admin','Admin panel — manage departments, forms and notices','https://mis-darpan.github.io/Litpax-Departments-Hub/admin.html','⚙️']
   ],
 
   charts: {
