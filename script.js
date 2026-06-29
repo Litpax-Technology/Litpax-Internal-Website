@@ -88,7 +88,8 @@ const DATA = {
   repairForms: [
     ['Field Service Support','Raise technician support tickets and field service requests','https://mis-darpan.github.io/litpax-support-ticket-system/','↗'],
     ['Repair Form','Create and manage repair related requests','https://mis-darpan.github.io/repairformlitpax/','↗'],
-    ['Service Calls Form','Manage service requests, complaints and support entries','https://mis-darpan.github.io/ServiceCallsWebForm/','↗']
+    ['Service Calls Form','Manage service requests, complaints and support entries','https://mis-darpan.github.io/ServiceCallsWebForm/','↗'],
+    ['Battery Exchange Tracker','Battery exchange records and tracking system','https://mis-darpan.github.io/Battery-Exchange-Tracker/','↗']
   ],
 
    
