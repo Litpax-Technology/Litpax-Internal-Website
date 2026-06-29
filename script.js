@@ -91,9 +91,7 @@ const DATA = {
     ['Service Calls Form','Manage service requests, complaints and support entries','https://mis-darpan.github.io/ServiceCallsWebForm/','↗']
   ],
 
-   repairSheets : [
-     
-  ],
+   
 
   repairResponses: [
     ['Litpax Support Ticket Response','Response Sheet','https://docs.google.com/spreadsheets/d/1L_XvlvqsjRJ6sDXxABkb8RITGzrtRcth9xtZWuuMpJ8/edit?gid=0#gid=0'],
@@ -242,7 +240,6 @@ function render(){
   setHTML('erpGrid',         DATA.erp.map(featureCard).join(''));
   setHTML('departmentsHubGrid', DATA.departmentsHub.map(featureCard).join(''));
   setHTML('repairFormsGrid',     DATA.repairForms.map(featureCard).join(''));
-  setHTML('repairSheetsGrid',    DATA.repairSheets.map(toolCard).join(''));
   setHTML('repairResponsesGrid', DATA.repairResponses.map(toolCard).join(''));
   setHTML('paymentsCharts', paymentsGroupedHTML());
   setHTML('courierCharts',  `<div class="chart-grid">${DATA.charts.courier.map(chartCard).join('')}</div>`);
