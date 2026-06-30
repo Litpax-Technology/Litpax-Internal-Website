@@ -18,7 +18,8 @@ const DATA = {
     ['Interviewer Entry Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfl0frLQf-VXYRL07LkLFbrJxVXAxhw0AKOaCG3OMxeb3APvQ/viewform?usp=dialog'],
     ['Employee Advance Request Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdY-1dRa1MPec6_YPvR_nBHMLmMLRkxqzWZFMb_ilRtwxqwpQ/viewform'],
     ['Material Gatepass Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSfDuPg5YMG1O-nGmNu2Cl63RvNDmSssQATpbOYn5rXGQ3xVjg/viewform'],
-    ['External Material Request Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdFrEg4I_-qCWy09zz3_03qYJpvsyZBKwuyCRSHUkR1dY79aA/viewform']
+    ['External Material Request Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdFrEg4I_-qCWy09zz3_03qYJpvsyZBKwuyCRSHUkR1dY79aA/viewform'],
+    ['Delivery Challan Creation Form','Google Form','https://docs.google.com/forms/d/e/1FAIpQLSdYlpdg4pfcmvpYrTAjLlXHrldDgwdY_sTwxf_G_DIGFMxNFA/viewform']
   ],
 
   erp: [
@@ -63,7 +64,8 @@ const DATA = {
     ['Warivo Litpax','Response Sheet','https://docs.google.com/spreadsheets/d/1-bg8kLFZ6VBvxx9zgh_xAVNkfAGmuKBYnbZ8LW6vzMo/edit?gid=225535915#gid=225535915'],
     ['Rajesh Enterprises Repairing','Response Sheet','https://docs.google.com/spreadsheets/d/106m4B-SsXRKtJP0pdb8tm-kjOKkNWRUCU83TEFA7OSs/edit?gid=728254061#gid=728254061'],
     ['Rajesh Enterprises Litpax','Response Sheet','https://docs.google.com/spreadsheets/d/1u2_Rai0ny-EAwjbQI1oaLQ9zofKj_S5jMJCOYFOUEZM/edit?gid=815049016#gid=815049016'],
-    ['External Material Request','Kapil Response Sheet','https://docs.google.com/spreadsheets/d/1eGaLODHHlPUek56tEY-M27UvwD5c8NlbRyHK2SmdxUw/edit?resourcekey=&gid=925853763#gid=925853763']
+    ['External Material Request','Kapil Response Sheet','https://docs.google.com/spreadsheets/d/1eGaLODHHlPUek56tEY-M27UvwD5c8NlbRyHK2SmdxUw/edit?resourcekey=&gid=925853763#gid=925853763'],
+    ['Delivery Challan Creation','Response Sheet','https://docs.google.com/spreadsheets/d/1GyNF5PwPx7xLhNvDnpmaY0dCl5uQBoNfmZeVaLg8Cgo/edit?gid=241043975#gid=241043975']
   ],
 
   ims: [
