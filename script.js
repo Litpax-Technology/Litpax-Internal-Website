@@ -35,9 +35,7 @@ const DATA = {
     ['Battery Exchange Tracker','Battery exchange records and tracking system','https://litpax-technology.github.io/Battery-Exchange-Tracker/','↗']
   ],
 
-  mainSheets: [
-    ['Stock Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1-RIiXIEDFvIdw84SHifI8iCMiooegmTsGQsd0RgeWuI/edit?gid=584720689#gid=584720689']
-  ],
+
 
   orderSheets: [
     ['Sales Department','Order Flow Sheet','https://docs.google.com/spreadsheets/d/19TlBMYs8LS_COjqIjCvPaFzTNcpmhAE5q1odACOi__4/edit?gid=971562839#gid=971562839'],
@@ -235,7 +233,7 @@ function paymentsGroupedHTML(){
 function render(){
   setHTML('formsGrid',       DATA.forms.map(toolCard).join(''));
   setHTML('webFormsGrid',    DATA.webForms.map(featureCard).join(''));
-  setHTML('mainSheetsGrid',  DATA.mainSheets.map(toolCard).join(''));
+  
   setHTML('orderSheetsGrid', DATA.orderSheets.map(toolCard).join(''));
   setHTML('responsesGrid',        DATA.responses.map(toolCard).join(''));
   setHTML('webFormResponsesGrid', DATA.webFormResponses.map(toolCard).join(''));
