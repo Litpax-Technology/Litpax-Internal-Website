@@ -67,7 +67,8 @@ const DATA = {
     ['Rajesh Enterprises Repairing','Response Sheet','https://docs.google.com/spreadsheets/d/106m4B-SsXRKtJP0pdb8tm-kjOKkNWRUCU83TEFA7OSs/edit?gid=728254061#gid=728254061'],
     ['Rajesh Enterprises Litpax','Response Sheet','https://docs.google.com/spreadsheets/d/1u2_Rai0ny-EAwjbQI1oaLQ9zofKj_S5jMJCOYFOUEZM/edit?gid=815049016#gid=815049016'],
     ['External Material Request','Kapil Response Sheet','https://docs.google.com/spreadsheets/d/1eGaLODHHlPUek56tEY-M27UvwD5c8NlbRyHK2SmdxUw/edit?resourcekey=&gid=925853763#gid=925853763'],
-    ['Delivery Challan Creation','Response Sheet','https://docs.google.com/spreadsheets/d/1GyNF5PwPx7xLhNvDnpmaY0dCl5uQBoNfmZeVaLg8Cgo/edit?gid=241043975#gid=241043975']
+    ['Delivery Challan Creation','Response Sheet','https://docs.google.com/spreadsheets/d/1GyNF5PwPx7xLhNvDnpmaY0dCl5uQBoNfmZeVaLg8Cgo/edit?gid=241043975#gid=241043975'],
+    ['Scrap Clearance Form Response','Response Sheet','https://docs.google.com/spreadsheets/d/1e9s9n2nMYr1bjN5a8QhMVaiJCU7cqbUJ80o2WIRZskw/edit?gid=416425349#gid=416425349'],
   ],
 
   ims: [
@@ -104,6 +105,7 @@ const DATA = {
     ['Repair Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1ythER3lvxeUS-ke6h_KC-1l8855sQQuiiZ4eQ2BzE5M/edit?gid=0#gid=0'],
     ['Service Sheet','Google Sheet','https://docs.google.com/spreadsheets/d/1POqxaWq3v1nk0mZF0-e7KhKrHbX_AlMWqUewk17tm0s/edit?gid=2116141456#gid=2116141456'],
     ['Battery Exchange Tracker Admin','Battery exchange records and tracking system','https://litpax-technology.github.io/Battery-Exchange-Tracker/admin.html','↗']
+    
     
   ],
 
@@ -158,7 +160,7 @@ const DATA = {
       ['Daily Received vs Dispatched Batteries','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=50719008&format=interactive'],
       ['Battery Qty and Charger Qty Received','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=1780959702&format=interactive'],
       ['Daily Battery Type Receiving Summary','https://docs.google.com/spreadsheets/d/e/2PACX-1vR87kYg0Gurra1Oku60LqsPyOsD_N1aduilR_QHKj5Dr6OQ0DkjWjGa8XDj3WBh7hFuU2pzincTUMEd/pubchart?oid=2091678534&format=interactive'],
-      ['Scrap Clearance Form Response','Response Sheet','https://docs.google.com/spreadsheets/d/1e9s9n2nMYr1bjN5a8QhMVaiJCU7cqbUJ80o2WIRZskw/edit?gid=416425349#gid=416425349'],
+      
     ]
   }
 };
