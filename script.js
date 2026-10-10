@@ -31,7 +31,7 @@ const DATA = {
   ],
 
   dpr: [
-    ['Daily Production Review','Line-wise daily plan vs achieved — production review board','https://litpax-technology.github.io/Daily-Production-Review-/','📋'],
+    ['Daily Production Review','Line-wise daily plan vs achieved — production review board','https://litpax-technology.github.io/Daily-Production-Review-/dashboard.html','📋'],
   ],
 
   webForms: [
