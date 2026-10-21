@@ -26,6 +26,10 @@ const DATA = {
     ['Litpax ERP','Order to delivery ERP system','https://litpax-technology.github.io/LitpaxERP/index.html','↗'],
   ],
 
+  serviceHub: [
+    ['Litpax Service ERP','Service, repair aur enquiry management system','https://litpax-technology.github.io/litpax-service-erp/','🛠️'],
+  ],
+
     employeeAdvance: [
     ['Employee Advance Admin','Employee advance requests manage karo — approve, track aur update karo','https://litpax-technology.github.io/Employee-Advance/owner.html','💰'],
   ],
@@ -251,6 +255,7 @@ function render(){
   setHTML('checklistGrid',   DATA.checklist.map(featureCard).join(''));
   setHTML('fmsGrid',         DATA.fms.map(featureCard).join(''));
   setHTML('erpGrid',         DATA.erp.map(featureCard).join(''));
+  setHTML('serviceHubGrid',  DATA.serviceHub.map(featureCard).join(''));
     setHTML('employeeAdvanceGrid', DATA.employeeAdvance.map(featureCard).join(''));
   setHTML('departmentsHubGrid', DATA.departmentsHub.map(featureCard).join(''));
   setHTML('dprGrid',            DATA.dpr.map(featureCard).join(''));
